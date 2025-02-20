@@ -1,13 +1,9 @@
-
-class AlphaOne():
+#Press the green button in the gutter to run the script.
+if __name__ == '__main__':
     #Primitives
     integer = 10
-    double = 12.45
-    float = 3.1417639
-    long = 100000000000
+    floatValue = 3.1417639
     booleanValue = True
-    # Single quotes for Character
-    character = 'a'
 
     #Non Primitives
     #String
@@ -29,8 +25,8 @@ class AlphaOne():
     #Get last N characters of a String
     lastOfString = stringValue[-3:]
     #Remove First and Last characters of String
-    removeFirstLast1 = stringValue[1 : -1]
-    removeFirstLast2 = stringValue[1 : len(stringValue) - 1]
+    removeFirstLast1 = stringValue[1: -1]
+    removeFirstLast2 = stringValue[1: len(stringValue) - 1]
     #Check if String is Alphabet
     checkAlphabet = stringValue.isalpha()
     #Verify if String starts or ends with
@@ -41,19 +37,18 @@ class AlphaOne():
     lowerString = stringValue.islower()
 
     #Array Operations
+    #Create new placeholder Array of fixed length
+    #Create Two Dimensional Array
+    twoDimArray = [[1, 2], [3, 4], [5, 6]]
     #Generate String from Array with delimiter
     joinedArray = " ".join(stringArray)
     #Reverse Array
     reverseArray1 = stringArray[::-1]
     reverseArray2 = reversed(stringArray)
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    _alphaOne = AlphaOne()
     #f"" String format is easier to work with
-    print(f"'{_alphaOne.replacedMessage}' starts with Alpha: {str(_alphaOne.startsWith)} and ends with Initialized: {str(_alphaOne.endsWith)}")
-    print(f"String length for '{_alphaOne.stringValue}' is {_alphaOne.lengthString}")
-    print(f"Reversed String is '{_alphaOne.reverseString}', Reversed Array is '{" ".join(_alphaOne.reverseArray1)}' or {" ".join(_alphaOne.reverseArray2)}'")
-    print(f"Stripping last 3 characters from '{_alphaOne.stringValue}' results in '{_alphaOne.lastOfString}'")
-    print(f"Joined Array is '{_alphaOne.joinedArray}'")
-    print(f"Removing first and last characters from '{_alphaOne.stringValue}' results in '{_alphaOne.removeFirstLast1}' and '{_alphaOne.removeFirstLast2}'")
+    print(f"'{replacedMessage}' starts with Alpha: {str(startsWith)} and ends with Initialized: {str(endsWith)}")
+    print(f"String length for '{stringValue}' is {lengthString}")
+    print(f"Reversed String is '{reverseString}', Reversed Array is '{" ".join(reverseArray1)}' or {" ".join(reverseArray2)}'")
+    print(f"Stripping last 3 characters from '{stringValue}' results in '{lastOfString}'")
+    print(f"Joined Array is '{joinedArray}'")
+    print(f"Removing first and last characters from '{stringValue}' results in '{removeFirstLast1}' and '{removeFirstLast2}'")
