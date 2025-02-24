@@ -1,5 +1,5 @@
 #Press the green button in the gutter to run the script.
-from AlphaTwo import AlphaTwo
+from AlphaTwo import AlphaTwo, function_min_array, void_function
 
 if __name__ == '__main__':
     #Primitives
@@ -98,8 +98,13 @@ if __name__ == '__main__':
     #For item in Array
 
     #OOP
+    #Public method requires Instance of Class
     _alphaTwo = AlphaTwo()
     alphaTwoIntSum = _alphaTwo.sum_int_array(integerArray)
+    #Static method does not require Instance of Class
+    alphaTwoIntAverage = AlphaTwo.average_int_array(integerArray)
+    #Function needs to be imported separately in Python
+    alphaTwoIntMin = function_min_array(integerArray)
 
     #Integers
 
@@ -127,4 +132,8 @@ if __name__ == '__main__':
     #Dictionaries
 
     #OOP
-    print(f"After creating instance of Class AlphaTwo, using its method SumIntArray to calculate sum of '{integerArray}' is {alphaTwoIntSum}")
+    print(f"After creating instance of Class AlphaTwo, using its method sum_int_array to calculate sum of '{integerArray}' is {alphaTwoIntSum}")
+    print(f"Static method of Class AlphaTwo average_int_array used to calculate average of '{integerArray}' is {alphaTwoIntAverage}")
+    _alphaTwo.void_alpha_two()
+    void_function()
+    print(f"Function of Class AlphaTwo min_int_array used to retrieve minimum value of '{integerArray}' is {alphaTwoIntMin}")
