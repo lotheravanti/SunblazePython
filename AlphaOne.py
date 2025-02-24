@@ -1,4 +1,6 @@
 #Press the green button in the gutter to run the script.
+from AlphaTwo import AlphaTwo
+
 if __name__ == '__main__':
     #Primitives
     integer = 10
@@ -11,11 +13,10 @@ if __name__ == '__main__':
     #Arrays
     integerArray = [1, 2, 3, 4, 5, 6, 7]
     stringArray = ["This", "is", "an", "Array", "from", "a", "String."]
+    #Tuple
+    #Set
 
     #Integer Operations
-    #Split String into Int Array
-    stringInt = '549713'
-    stringToIntArray = [int(i) for i in stringInt]
 
     #String Operations
     stringValue = "lower case text"
@@ -27,6 +28,11 @@ if __name__ == '__main__':
     reverseString = stringValue[::-1]
     #Replace part of String
     replacedMessage = message.replace("One", "Prime")
+    #Replace only N occurrences of String
+    nOccurrencesString = "every e in the sentence"
+    replaceNOccurrencesString = nOccurrencesString.replace("e", "E", 3)
+    #Get first N characters of a String
+    firstOfString = stringValue[0:1]
     #Get last N characters of a String
     lastOfString = stringValue[-3:]
     #Remove First and Last characters of String
@@ -57,8 +63,24 @@ if __name__ == '__main__':
     #Reverse Array
     reverseArray1 = stringArray[::-1]
     reverseArray2 = reversed(stringArray)
+    #Count occurrences in Array
+    countArray = ["a", "b", "a", "c", "a"]
+    occurrenceString = "a"
+    occurrencesArray = countArray.count(occurrenceString)
+    # Split String into Integer Array
+    stringInt = '549713'
+    stringToIntArray = [int(i) for i in stringInt]
+    #Get Minimum and Maximum values from an Array
+    minArray = min(integerArray)
+    maxArray = max(integerArray)
 
-    #If statement
+    #Dictionary Operations
+    #Declare a new dictionary
+    dictionary = {}
+    #Add entry to dictionary
+    dictionary.update({"String": 1})
+
+    #If statements
     condition = False
     if integerArray[0] == 1:
         condition = True
@@ -71,14 +93,24 @@ if __name__ == '__main__':
     if integerArray[0] == 1 or integerArray[1] == 2:
         condition = True
 
+    #For Loops
+    #For index in Array
+    #For item in Array
+
+    #OOP
+    _alphaTwo = AlphaTwo()
+    alphaTwoIntSum = _alphaTwo.sum_int_array(integerArray)
+
     #Integers
-    print(f"Split '{stringInt}' to Int Array '{stringToIntArray}'")
+
 
     #Strings
     #String Interpolation format is easier to work with
     print(f"String length for '{stringValue}' is {lengthString}")
     print(f"Reversed String is '{reverseString}'")
-    print(f"Stripping last 3 characters from '{stringValue}' results in '{lastOfString}'")
+    print(f"Replace 'e' with 'E' only 3 times from '{nOccurrencesString}' is '{replaceNOccurrencesString}'")
+    print(f"First character from '{stringValue}' is '{firstOfString}'")
+    print(f"Last 3 characters from '{stringValue}' are '{lastOfString}'")
     print(f"Removing first and last characters from '{stringValue}' results in '{removeFirstLast1}' and '{removeFirstLast2}'")
     print(f"'{stringAlphabet}' contains only alphabet characters: {checkAlphabet}")
     print(f"'{replacedMessage}' starts with Alpha: '{str(startsWith)}' and ends with Initialized: '{str(endsWith)}'")
@@ -88,3 +120,11 @@ if __name__ == '__main__':
     #Arrays
     print(f"Joined Array is '{joinedArray}'")
     print(f"Reversed Array is '{" ".join(reverseArray1)}' or '{" ".join(reverseArray2)}'")
+    print(f"Array '{countArray}' contains {occurrencesArray} occurrences of '{occurrenceString}'")
+    print(f"Split '{stringInt}' to Int Array '{stringToIntArray}'")
+    print(f"Minimum value of Array '{integerArray}' is {minArray}, Maximum value is {maxArray}")
+
+    #Dictionaries
+
+    #OOP
+    print(f"After creating instance of Class AlphaTwo, using its method SumIntArray to calculate sum of '{integerArray}' is {alphaTwoIntSum}")
