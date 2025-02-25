@@ -1,11 +1,13 @@
+#Superclass/Base Class
 class AlphaTwo:
 
-    #Properties
+    #Fields/Properties
     outerAlphaTwoString = ""
 
     #Constructor
     def __init__(self):
         self.outerAlphaTwoString = "This is AlphaTwo's String"
+        self.alphaTwoIntArray = [1, 2, 3, 4, 5]
 
     #Methods
     #Public method
@@ -18,6 +20,24 @@ class AlphaTwo:
     #Void method does not have return type, it only executes code
     def void_alpha_two(self):
         print(f"AlphaTwo's Void method returned: {self.outerAlphaTwoString}")
+
+    #Inner Class
+    class InnerAlphaTwo:
+        innerAlphaTwoString = "This is InnerAlphaTwo's String"
+        updatedAlphaTwoString = ""
+
+        #Setter
+        def inner_alpha_two_set(self):
+            self.updatedAlphaTwoString = "AlphaTwo's String has been updated from within InnerAlphaTwo"
+
+        #Getter
+        def inner_alpha_two_get(self):
+            print(f"Inner Class of AlphaTwo's property reads: {self.innerAlphaTwoString}")
+            print(self.updatedAlphaTwoString)
+
+        @staticmethod
+        def min_int_array(intarray):
+            return min(intarray)
 
 #In Python, functions can exist outside of classes and are different from methods
 def function_min_array(intarray):

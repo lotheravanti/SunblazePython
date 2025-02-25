@@ -1,5 +1,6 @@
 #Press the green button in the gutter to run the script.
 from AlphaTwo import AlphaTwo, function_min_array, void_function
+from AlphaTwoSub import AlphaTwoSub
 
 if __name__ == '__main__':
     #Primitives
@@ -10,11 +11,19 @@ if __name__ == '__main__':
     #Non Primitives
     #String
     message = "Alpha One Initialized"
-    #Arrays
+    #Arrays are Lists in Python, ordered non-homogeneous, columns of a single or multiple rows, allows duplicate elements
+    #Multiple primitive types are possible, compared to C# and JAVA
     integerArray = [1, 2, 3, 4, 5, 6, 7]
     stringArray = ["This", "is", "an", "Array", "from", "a", "String."]
-    #Tuple
-    #Set
+    mixedArray = [1, "b", 3, "d"]
+    #Tuple non-homogeneous, columns of a single or multiple rows, allows duplicate elements
+    #Tuple is immutable, changes cannot be made
+    declaredTuple = ("A", 1, [1,2,3])
+    #Set non-homogeneous, single row, will not allow duplicate elements
+    declaredSet = {1, 2, 3, 4, 5, 6, 7}
+    #Dictionary non-homogeneous, stores key-value pairs, doesn’t allow duplicate keys
+    emptyDictionary = {}
+    declaredDictionary = {"A": 1, "B": 2, "C": 3, "D": 4, "E": 5}
 
     #Integer Operations
 
@@ -75,10 +84,8 @@ if __name__ == '__main__':
     maxArray = max(integerArray)
 
     #Dictionary Operations
-    #Declare a new dictionary
-    dictionary = {}
     #Add entry to dictionary
-    dictionary.update({"String": 1})
+    declaredDictionary.update({"F": 6})
 
     #If statements
     condition = False
@@ -105,6 +112,14 @@ if __name__ == '__main__':
     alphaTwoIntAverage = AlphaTwo.average_int_array(integerArray)
     #Function needs to be imported separately in Python
     alphaTwoIntMin = function_min_array(integerArray)
+    #Create instance of Inner Class
+    _innerAlphaTwo = AlphaTwo.InnerAlphaTwo()
+    innerAlphaTwoIntMin = _innerAlphaTwo.min_int_array(integerArray)
+    _innerAlphaTwo.inner_alpha_two_set()
+    #Create instance of Subclass(shorthand)
+    _alphaTwoSub = AlphaTwoSub()
+    #Subclass inherits method from Superclass
+    alphaTwoSubIntSum = _alphaTwoSub.sum_int_array(_alphaTwoSub.alphaTwoIntArray)
 
     #Integers
 
@@ -130,6 +145,7 @@ if __name__ == '__main__':
     print(f"Minimum value of Array '{integerArray}' is {minArray}, Maximum value is {maxArray}")
 
     #Dictionaries
+    print(f"This is a dictionary '{declaredDictionary}'")
 
     #OOP
     print(f"After creating instance of Class AlphaTwo, using its method sum_int_array to calculate sum of '{integerArray}' is {alphaTwoIntSum}")
@@ -137,3 +153,6 @@ if __name__ == '__main__':
     _alphaTwo.void_alpha_two()
     void_function()
     print(f"Function of Class AlphaTwo min_int_array used to retrieve minimum value of '{integerArray}' is {alphaTwoIntMin}")
+    _innerAlphaTwo.inner_alpha_two_get()
+    print(f"Array Field from AlphaTwo is '{_alphaTwo.alphaTwoIntArray}', from AlphaTwoSub is '{_alphaTwoSub.alphaTwoIntArray}'")
+    print(f"AlphaTwoSub is a Subclass and has inherited sum_int_array from AlphaTwo to sum '{_alphaTwoSub.alphaTwoIntArray}', resulting in {alphaTwoSubIntSum}")
