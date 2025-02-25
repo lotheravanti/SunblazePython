@@ -6,7 +6,9 @@ class AlphaTwo:
 
     #Constructor
     def __init__(self):
+        # Fields/Properties are declared inside constructor in Python
         self.outerAlphaTwoString = "This is AlphaTwo's String"
+        #Array is declared here in Python otherwise the Subclass will overwrite it
         self.alphaTwoIntArray = [1, 2, 3, 4, 5]
 
     #Methods
@@ -20,6 +22,10 @@ class AlphaTwo:
     #Void method does not have return type, it only executes code
     def void_alpha_two(self):
         print(f"AlphaTwo's Void method returned: {self.outerAlphaTwoString}")
+    @staticmethod
+    def reverse_string(s):
+        return s[::-1]
+    #Method overloading is not recommended in Python
 
     #Inner Class
     class InnerAlphaTwo:

@@ -104,6 +104,17 @@ if __name__ == '__main__':
     #For index in Array
     #For item in Array
 
+    #While Loops
+    #Calculate number of divisors in a number, example: 30 has 1, 2, 3, 5, 6, 10, 15 and 30
+    intDivisors = 30
+    numberOfDivisors = 1
+    whileIterator = 1
+    while whileIterator < intDivisors:
+        #Check if number can be divided by iterator
+        if intDivisors % whileIterator == 0:
+            numberOfDivisors += 1
+        whileIterator += 1
+
     #OOP
     #Public method requires Instance of Class
     _alphaTwo = AlphaTwo()
@@ -126,6 +137,7 @@ if __name__ == '__main__':
 
     #Strings
     #String Interpolation format is easier to work with
+    print("Strings")
     print(f"String length for '{stringValue}' is {lengthString}")
     print(f"Reversed String is '{reverseString}'")
     print(f"Replace 'e' with 'E' only 3 times from '{nOccurrencesString}' is '{replaceNOccurrencesString}'")
@@ -138,6 +150,7 @@ if __name__ == '__main__':
     print(f"'{lowerString}' is all Lower Case: {isLower}")
 
     #Arrays
+    print("\nArrays")
     print(f"Joined Array is '{joinedArray}'")
     print(f"Reversed Array is '{" ".join(reverseArray1)}' or '{" ".join(reverseArray2)}'")
     print(f"Array '{countArray}' contains {occurrencesArray} occurrences of '{occurrenceString}'")
@@ -145,9 +158,15 @@ if __name__ == '__main__':
     print(f"Minimum value of Array '{integerArray}' is {minArray}, Maximum value is {maxArray}")
 
     #Dictionaries
+    print("\nDictionaries")
     print(f"This is a dictionary '{declaredDictionary}'")
 
+    #While Loops
+    print("\nWhile Loops")
+    print(f"The number {intDivisors} has {numberOfDivisors} divisors")
+
     #OOP
+    print("\nOOP")
     print(f"After creating instance of Class AlphaTwo, using its method sum_int_array to calculate sum of '{integerArray}' is {alphaTwoIntSum}")
     print(f"Static method of Class AlphaTwo average_int_array used to calculate average of '{integerArray}' is {alphaTwoIntAverage}")
     _alphaTwo.void_alpha_two()
@@ -156,3 +175,5 @@ if __name__ == '__main__':
     _innerAlphaTwo.inner_alpha_two_get()
     print(f"Array Field from AlphaTwo is '{_alphaTwo.alphaTwoIntArray}', from AlphaTwoSub is '{_alphaTwoSub.alphaTwoIntArray}'")
     print(f"AlphaTwoSub is a Subclass and has inherited sum_int_array from AlphaTwo to sum '{_alphaTwoSub.alphaTwoIntArray}', resulting in {alphaTwoSubIntSum}")
+    print(f"AlphaTwoSub's String has been reversed using Base Class' Method: '{_alphaTwoSub.alphaTwoSubString}'")
+    print(_alphaTwo.outerAlphaTwoString)
