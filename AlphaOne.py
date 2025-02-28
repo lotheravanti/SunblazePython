@@ -87,7 +87,8 @@ if __name__ == '__main__':
     #Add entry to dictionary
     declaredDictionary.update({"F": 6})
 
-    #If statements
+    #Conditionals
+    #If Else Statement
     condition = False
     if integerArray[0] == 1:
         condition = True
@@ -99,10 +100,26 @@ if __name__ == '__main__':
     #If statement with OR
     if integerArray[0] == 1 or integerArray[1] == 2:
         condition = True
+    #Switch
 
     #For Loops
     #For index in Array
+    forLoopCount = 0
+    for i in range(len(integerArray)):
+        forLoopCount += integerArray[i]
     #For item in Array
+    forEachString = ""
+    for s in stringArray:
+        forEachString += s
+    #Count number of matching characters in a String
+    matchingString = "We will count the number of vowels"
+    countMatchingString = 0
+    matchingStringArray = [s for s in matchingString]
+    matchingVowels = ["a", "e", "i", "o", "u"]
+    for i in range(len(matchingStringArray)):
+        #Using .matches() with expression to count all vowels
+        if matchingStringArray[i] in matchingVowels:
+            countMatchingString += 1
 
     #While Loops
     #Calculate number of divisors in a number, example: 30 has 1, 2, 3, 5, 6, 10, 15 and 30
@@ -133,11 +150,11 @@ if __name__ == '__main__':
     alphaTwoSubIntSum = _alphaTwoSub.sum_int_array(_alphaTwoSub.alphaTwoIntArray)
 
     #Integers
-
+    print("Integers")
 
     #Strings
     #String Interpolation format is easier to work with
-    print("Strings")
+    print("\nStrings")
     print(f"String length for '{stringValue}' is {lengthString}")
     print(f"Reversed String is '{reverseString}'")
     print(f"Replace 'e' with 'E' only 3 times from '{nOccurrencesString}' is '{replaceNOccurrencesString}'")
@@ -160,6 +177,15 @@ if __name__ == '__main__':
     #Dictionaries
     print("\nDictionaries")
     print(f"This is a dictionary '{declaredDictionary}'")
+
+    #Conditionals
+    print("\nConditionals")
+
+    #For Loops
+    print("\nFor Loops")
+    print(f"Using Index For Loop to count Array '{integerArray}' returns {forLoopCount}")
+    print(f"Using Foreach Loop on every element in Array '{stringArray}' returns the following String '{forEachString}'")
+    print(f"The number of vowels in '{matchingString}' is {countMatchingString}")
 
     #While Loops
     print("\nWhile Loops")
