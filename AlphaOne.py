@@ -1,10 +1,11 @@
 #Press the green button in the gutter to run the script.
 from AlphaTwo import AlphaTwo, function_min_array, void_function
 from AlphaTwoSub import AlphaTwoSub
+import math
 
 if __name__ == '__main__':
     #Primitives
-    integer = 10
+    integer = 16
     floatValue = 3.1417639
     booleanValue = True
 
@@ -26,6 +27,12 @@ if __name__ == '__main__':
     declaredDictionary = {"A": 1, "B": 2, "C": 3, "D": 4, "E": 5}
 
     #Integer Operations
+    #Round number down
+    math.ceil(floatValue)
+    #Round number up
+    math.floor(floatValue)
+    #Check if number is a perfect square
+    math.sqrt(integer)
 
     #String Operations
     stringValue = "lower case text"
