@@ -27,12 +27,17 @@ if __name__ == '__main__':
     declaredDictionary = {"A": 1, "B": 2, "C": 3, "D": 4, "E": 5}
 
     #Integer Operations
+    #Convert String to Integer
     #Round number down
     math.ceil(floatValue)
     #Round number up
     math.floor(floatValue)
     #Check if number is a perfect square
     math.sqrt(integer)
+    #Get difference between two numbers
+    #Get current quarter of the year
+
+    #Character Operations
 
     #String Operations
     stringValue = "lower case text"
@@ -74,6 +79,8 @@ if __name__ == '__main__':
     fixedArray[2] = 10
     #Create Two Dimensional Array
     twoDimArray = [[1, 2], [3, 4], [5, 6]]
+    #Append to Array
+    #Generate Array from String
     #Generate String from Array with delimiter
     joinedArray = " ".join(stringArray)
     #Reverse Array
@@ -83,16 +90,23 @@ if __name__ == '__main__':
     countArray = ["a", "b", "a", "c", "a"]
     occurrenceString = "a"
     occurrencesArray = countArray.count(occurrenceString)
-    # Split String into Integer Array
+    #Split String into Integer Array
     stringInt = '549713'
     stringToIntArray = [int(i) for i in stringInt]
     #Get Minimum and Maximum values from an Array
     minArray = min(integerArray)
     maxArray = max(integerArray)
+    #Sort an Array
+    #Sum of Array
+    #Average of Array
+    #Multiply all elements of Array
+    #Convert from Binary to base 10
 
     #Dictionary Operations
     #Add entry to dictionary
     declaredDictionary.update({"F": 6})
+
+    #Enumerable Operations
 
     #Conditionals
     #If Else Statement
@@ -108,6 +122,15 @@ if __name__ == '__main__':
     if integerArray[0] == 1 or integerArray[1] == 2:
         condition = True
     #Switch
+    switchString = "Green Light"
+    waitForSwitch = ""
+    match switchString:
+        case "Yellow Light":
+            waitForSwitch = "Wait for Red Light"
+        case "Red Light":
+            waitForSwitch = "Wait for Green Light"
+        case _:
+            waitForSwitch = "Wait for Yellow Light"
 
     #For Loops
     #For index in Array
@@ -159,6 +182,9 @@ if __name__ == '__main__':
     #Integers
     print("Integers")
 
+    #Characters
+    print("\nCharacters")
+
     #Strings
     #String Interpolation format is easier to work with
     print("\nStrings")
@@ -184,6 +210,9 @@ if __name__ == '__main__':
     #Dictionaries
     print("\nDictionaries")
     print(f"This is a dictionary '{declaredDictionary}'")
+
+    #Enumerable
+    print("\nEnumerable")
 
     #Conditionals
     print("\nConditionals")
