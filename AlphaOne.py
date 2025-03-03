@@ -37,6 +37,10 @@ if __name__ == '__main__':
     math.ceil(floatValue)
     #Round number up
     math.floor(floatValue)
+    #Get number at the power of N
+    numberForPower = 7
+    powerN = 2
+    numberAtPowerN = numberForPower ** powerN
     #Check if number is a perfect square
     math.sqrt(integer)
     #Get difference between two numbers
