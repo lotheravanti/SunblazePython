@@ -28,6 +28,11 @@ if __name__ == '__main__':
 
     #Integer Operations
     #Convert String to Integer
+    stringNumber = "12345"
+    intStringNumber = int(stringNumber)
+    #Always return positive number
+    negativeInteger = -4
+    negativeToPositiveInteger = abs(negativeInteger)
     #Round number down
     math.ceil(floatValue)
     #Round number up
@@ -35,7 +40,12 @@ if __name__ == '__main__':
     #Check if number is a perfect square
     math.sqrt(integer)
     #Get difference between two numbers
+    firstNumber = 40
+    secondNumber = 13
+    differenceBetween = abs(secondNumber - firstNumber)
     #Get current quarter of the year
+    currentMonth = 5
+    currentQuarter = math.ceil(currentMonth/3.0)
 
     #Character Operations
 
@@ -181,6 +191,7 @@ if __name__ == '__main__':
 
     #Integers
     print("Integers")
+    print(f"Current Month {currentMonth} is in Quarter: {currentQuarter}")
 
     #Characters
     print("\nCharacters")
