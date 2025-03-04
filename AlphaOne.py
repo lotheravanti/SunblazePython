@@ -37,6 +37,10 @@ if __name__ == '__main__':
     math.ceil(floatValue)
     #Round number up
     math.floor(floatValue)
+    #Dividing two Integers will always return a whole number
+    forDivisionInt = 10
+    divisorInt = 3
+    divisionResultInt = int(forDivisionInt / divisorInt)
     #Get number at the power of N
     numberForPower = 7
     powerN = 2
@@ -195,6 +199,8 @@ if __name__ == '__main__':
 
     #Integers
     print("Integers")
+    print(f"Converting String '{stringNumber}' to Integer: {intStringNumber}")
+    print(f"{forDivisionInt} can be divided by {divisorInt} a total of {divisionResultInt} times")
     print(f"Current Month {currentMonth} is in Quarter: {currentQuarter}")
 
     #Characters
