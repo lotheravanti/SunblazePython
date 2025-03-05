@@ -97,13 +97,19 @@ if __name__ == '__main__':
     fixedArray[2] = 10
     #Create Two Dimensional Array
     twoDimArray = [[1, 2], [3, 4], [5, 6]]
-    #Append to Array
+    #Append one item to Array
+    integerArray.append(8)
+    #Append multiple items to Array
+    integerArray.extend([9,10])
+    #Remove item by index from Array
+    integerArray.pop(9)
     #Generate Array from String
     #Generate String from Array with delimiter
     joinedArray = " ".join(stringArray)
     #Reverse Array
-    reverseArray1 = stringArray[::-1]
-    reverseArray2 = reversed(stringArray)
+    #In Python use .copy() to create a new variable, otherwise the original might be mutated
+    reverseArray1 = stringArray.copy()[::-1]
+    reverseArray2 = reversed(stringArray.copy())
     #Count occurrences in Array
     countArray = ["a", "b", "a", "c", "a"]
     occurrenceString = "a"
