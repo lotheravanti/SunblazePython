@@ -3,6 +3,7 @@ from selenium.webdriver.support.select import Select
 
 
 class Homepage(object):
+    # Locators are stored in tuple for Python since By type is not a string
     _txtHomePagetitle = (By.XPATH, "//h1[text()='Welcome to the-internet']")
     _lnkInputs = (By.XPATH, "//a[text()='Inputs']")
     _lnkDropdown = (By.XPATH, "//a[text()='Dropdown']")
@@ -12,6 +13,7 @@ class Homepage(object):
         self.driver.get('https://the-internet.herokuapp.com/')
 
     def ClickOn(self, by):
+        # Find element takes By type as first argument and value as second
         self.driver.find_element(by[0], by[1]).click()
 
     def FieldSendKeys(self, by, inputValue):

@@ -1,5 +1,7 @@
 #Press the green button in the gutter to run the script.
 import unittest
+from itertools import product
+
 from AlphaTwo import AlphaTwo, function_min_array, void_function
 from AlphaTwoSub import AlphaTwoSub
 import math
@@ -140,35 +142,61 @@ class AlphaOne(unittest.TestCase):
         self.integerArray.extend([9, 10])
         # Remove item by index from Array
         self.integerArray.pop(9)
-        # Generate Array from String
+        # Generate Array from String, remove .split() if String is not a sentence
+        stringToArray = "This is an Array from a String."
+        arrayFromString = [str(st) for st in stringToArray.split(" ")]
         # Generate String from Array with delimiter
-        joinedArray = " ".join(self.stringArray)
-        # Reverse Array
-        # In Python use .copy() to create a new variable, otherwise the original might be mutated
+        joinedStringArray = " ".join(self.stringArray)
+        # Reverse Array requires .copy() in Python, otherwise the original might be mutated
         reverseArray1 = self.stringArray.copy()[::-1]
         reverseArray2 = reversed(self.stringArray.copy())
         # Count occurrences in Array
-        countArray = ["a", "b", "a", "c", "a"]
-        occurrenceString = "a"
-        occurrencesArray = countArray.count(occurrenceString)
+        occurrencesArray = ["a", "a", "b", "c", "d", "d", "e", "e", "f", "x", "x", "y", "y", "z",]
+        occurrencesInArray = ["x", "y", "z"]
+        occurrencesInArrayCount = 0
+        for st in occurrencesArray:
+            if st in occurrencesInArray:
+                occurrencesInArrayCount += 1
         # Split String into Integer Array
         stringInt = '549713'
         stringToIntArray = [int(i) for i in stringInt]
         # Get Minimum and Maximum values from an Array
         minArray = min(self.integerArray)
         maxArray = max(self.integerArray)
-        # Sort an Array
         # Sum of Array
+        sumArray = sum(self.integerArray)
         # Average of Array
+        averageArray = sum(self.integerArray)/len(self.integerArray)
         # Multiply all elements of Array
+        productArray = 1
+        for num in self.integerArray:
+            productArray *= num
+        # Sort an Array
+        unsortedArray = [9, 5, 2, 7, 1, 8, 3, 4]
+        sortedArray = unsortedArray.copy()
+        sortedArray.sort()
+        # Iterate over object Array
+        objArray = [1, 2, "3", "4"]
+        objArraySum = 0
+        for value in objArray:
+            objArraySum += int(str(value))
         # Convert from Binary to base 10
+        binaryArray = [0, 1, 0, 1]
+        intConvertedFromBinary = 0
+        for i in range(len(binaryArray)):
+            intConvertedFromBinary += int(binaryArray[i] * math.pow(2, len(binaryArray) - i - 1))
 
         print("\nArrays")
-        print(f"Joined Array is '{joinedArray}'")
-        print(f"Reversed Array is '{" ".join(reverseArray1)}' or '{" ".join(reverseArray2)}'")
-        print(f"Array '{countArray}' contains {occurrencesArray} occurrences of '{occurrenceString}'")
+        print(f"Split String '{stringToArray}' into Array '{arrayFromString}'")
+        print(f"String from joined Array is '{joinedStringArray}'")
+        print(f"For '{self.stringArray}', Reversed Array is '{reverseArray1}' or '[{", ".join(reverseArray2)}]'")
+        print(f"The characters '{occurrencesInArray}' appear in '{occurrencesArray}' a total of {occurrencesInArrayCount} times")
         print(f"Split '{stringInt}' to Int Array '{stringToIntArray}'")
         print(f"Minimum value of Array '{self.integerArray}' is {minArray}, Maximum value is {maxArray}")
+        print(f"For Integer Array '{self.integerArray}', Sum is '{sumArray}', Average is '{averageArray}' and Product is'{productArray}'")
+        print(f"Unsorted Array is '{unsortedArray}', sorted Array is '{sortedArray}'")
+        print(f"Sum of Object Array '{objArray}'] is {objArraySum}")
+        print(f"Converting binary number {binaryArray} to base 10 number is {intConvertedFromBinary}")
 
     def testDictionaries(self):
         """test case B"""
