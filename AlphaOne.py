@@ -88,8 +88,11 @@ class AlphaOne(unittest.TestCase):
         upperCase = stringValue.upper()
         # Reverse String
         reverseString = stringValue[::-1]
-        # Replace part of String
+        # Replace part of String, will attempt to do so, but not break if not found
         replacedMessage = self.message.replace("One", "Prime")
+        # Can string multiple .replace()
+        replaceString = "51NGAP0RE"
+        replaceString = replaceString.replace("5","S").replace("1","I").replace("0","O")
         # Replace only N occurrences of String
         nOccurrencesString = "every e in the sentence"
         replaceNOccurrencesString = nOccurrencesString.replace("e", "E", 3)
@@ -100,6 +103,9 @@ class AlphaOne(unittest.TestCase):
         # Remove First and Last characters of String
         removeFirstLast1 = stringValue[1: -1]
         removeFirstLast2 = stringValue[1: len(stringValue) - 1]
+        # Remove part of String that comes after unique delimiter
+        toRemoveAnchorString = "www.codewars.com#about"
+        removedAnchorString = toRemoveAnchorString.split("#")[0]
         # Check if String is Alphabet
         stringAlphabet = "OnLyAlPhAbEt"
         checkAlphabet = stringAlphabet.isalpha()
@@ -119,11 +125,10 @@ class AlphaOne(unittest.TestCase):
         print(f"Replace 'e' with 'E' only 3 times from '{nOccurrencesString}' is '{replaceNOccurrencesString}'")
         print(f"First character from '{stringValue}' is '{firstOfString}'")
         print(f"Last 3 characters from '{stringValue}' are '{lastOfString}'")
-        print(
-            f"Removing first and last characters from '{stringValue}' results in '{removeFirstLast1}' and '{removeFirstLast2}'")
+        print(f"Removing first and last characters from '{stringValue}' results in '{removeFirstLast1}' and '{removeFirstLast2}'")
+        print(f"Remove from '{toRemoveAnchorString}' everything that comes after #: '{removedAnchorString}'")
         print(f"'{stringAlphabet}' contains only alphabet characters: {checkAlphabet}")
-        print(
-            f"'{replacedMessage}' starts with Alpha: '{str(startsWith)}' and ends with Initialized: '{str(endsWith)}'")
+        print(f"'{replacedMessage}' starts with Alpha: '{str(startsWith)}' and ends with Initialized: '{str(endsWith)}'")
         print(f"'{upperString}' is all Upper Case: {isUpper}")
         print(f"'{lowerString}' is all Lower Case: {isLower}")
 
