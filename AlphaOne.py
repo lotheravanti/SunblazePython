@@ -162,6 +162,9 @@ class AlphaOne(unittest.TestCase):
         for st in occurrencesArray:
             if st in occurrencesInArray:
                 occurrencesInArrayCount += 1
+        # Split Integer into Integer Array
+        intForArray = 1234567
+        intToArray = [int(i) for i in str(intForArray)]
         # Split String into Integer Array
         stringInt = '549713'
         stringToIntArray = [int(i) for i in stringInt]
@@ -196,6 +199,7 @@ class AlphaOne(unittest.TestCase):
         print(f"String from joined Array is '{joinedStringArray}'")
         print(f"For '{self.stringArray}', Reversed Array is '{reverseArray1}' or '[{", ".join(reverseArray2)}]'")
         print(f"The characters '{occurrencesInArray}' appear in '{occurrencesArray}' a total of {occurrencesInArrayCount} times")
+        print(f"Split {intForArray} to Int Array '{intToArray}'")
         print(f"Split '{stringInt}' to Int Array '{stringToIntArray}'")
         print(f"Minimum value of Array '{self.integerArray}' is {minArray}, Maximum value is {maxArray}")
         print(f"For Integer Array '{self.integerArray}', Sum is '{sumArray}', Average is '{averageArray}' and Product is'{productArray}'")
