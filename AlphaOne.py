@@ -1,5 +1,6 @@
 #Press the green button in the gutter to run the script.
 import unittest
+import re
 from itertools import product
 
 from AlphaTwo import AlphaTwo, function_min_array, void_function
@@ -93,6 +94,9 @@ class AlphaOne(unittest.TestCase):
         # Can string multiple .replace()
         replaceString = "51NGAP0RE"
         replaceString = replaceString.replace("5","S").replace("1","I").replace("0","O")
+        # Replace multiple characters at once using REGEX, import re
+        replaceMultiple = "This will be A String wIthoUt all vOwels"
+        replacedMultiple = re.sub(r"[aeiouAEIOU]", "", replaceMultiple)
         # Replace only N occurrences of String
         nOccurrencesString = "every e in the sentence"
         replaceNOccurrencesString = nOccurrencesString.replace("e", "E", 3)
@@ -122,6 +126,7 @@ class AlphaOne(unittest.TestCase):
         print("\nStrings")
         print(f"String length for '{stringValue}' is {lengthString}")
         print(f"Reversed String is '{reverseString}'")
+        print(f"Removing all vowels from String '{replaceMultiple}' results in: '{replacedMultiple}'")
         print(f"Replace 'e' with 'E' only 3 times from '{nOccurrencesString}' is '{replaceNOccurrencesString}'")
         print(f"First character from '{stringValue}' is '{firstOfString}'")
         print(f"Last 3 characters from '{stringValue}' are '{lastOfString}'")
