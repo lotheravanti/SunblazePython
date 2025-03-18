@@ -70,11 +70,15 @@ class AlphaOne(unittest.TestCase):
         # Get current quarter of the year
         currentMonth = 5
         currentQuarter = math.ceil(currentMonth / 3.0)
+        # Increment number with leading zeroes using zfill()
+        intLeadingZeroes = "0001"
+        strIncrementZeroes = str(int(intLeadingZeroes) + 1).zfill(len(intLeadingZeroes))
 
         print("Integers")
         print(f"Converting String '{stringNumber}' to Integer: {intStringNumber}")
         print(f"{forDivisionInt} can be divided by {divisorInt} a total of {divisionResultInt} times")
         print(f"Current Month {currentMonth} is in Quarter: {currentQuarter}")
+        print(f"Increment {intLeadingZeroes} with leading zeroes by 1: {strIncrementZeroes}")
 
     def testCharacters(self):
         """test case B"""
