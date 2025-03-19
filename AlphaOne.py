@@ -266,6 +266,10 @@ class AlphaOne(unittest.TestCase):
         forEachString = ""
         for s in self.stringArray:
             forEachString += s
+        # Reverse For Loop
+        reverseLoopArray = []
+        for i in range(len(self.integerArray) - 1, -1, -1):
+            reverseLoopArray += str(self.integerArray[i])
         # Count number of matching characters in a String
         matchingString = "We will count the number of vowels"
         countMatchingString = 0
@@ -278,8 +282,8 @@ class AlphaOne(unittest.TestCase):
 
         print("\nFor Loops")
         print(f"Using Index For Loop to count Array '{self.integerArray}' returns {forLoopCount}")
-        print(
-            f"Using Foreach Loop on every element in Array '{self.stringArray}' returns the following String '{forEachString}'")
+        print(f"Using Foreach Loop on every element in Array '{self.stringArray}' returns the following String '{forEachString}'")
+        print(f"Using Reverse For Loop to created Reversed Array: {reverseLoopArray}")
         print(f"The number of vowels in '{matchingString}' is {countMatchingString}")
 
     def testWhileLoops(self):
