@@ -125,6 +125,15 @@ class AlphaOne(unittest.TestCase):
         isUpper = upperString.isupper()
         lowerString = "alllower"
         isLower = lowerString.islower()
+        # Check if String contains substrings and remove them, leaving only domain: http://, https://, www
+        urlString = "http://www.codewars.com/kata/"
+        initialUrlString = urlString
+        if "://" in urlString:
+            urlString = urlString.split("://")[1]
+        if urlString.startswith("www"):
+            urlString = urlString.split(".")[1]
+        else:
+            urlString = urlString.split(".")[0]
 
         # String Interpolation format is easier to work with
         print("\nStrings")
@@ -140,6 +149,7 @@ class AlphaOne(unittest.TestCase):
         print(f"'{replacedMessage}' starts with Alpha: '{str(startsWith)}' and ends with Initialized: '{str(endsWith)}'")
         print(f"'{upperString}' is all Upper Case: {isUpper}")
         print(f"'{lowerString}' is all Lower Case: {isLower}")
+        print(f"Domain part of URL '{initialUrlString}' is '{urlString}'")
 
     def testArrays(self):
         """Array Operations"""
