@@ -8,6 +8,7 @@ class Homepage(object):
     _lnkAddRemove = (By.XPATH, "//a[text()='Add/Remove Elements']")
     _lnkDropdown = (By.XPATH, "//a[text()='Dropdown']")
     _lnkInputs = (By.XPATH, "//a[text()='Inputs']")
+    _lnkSortableDataTables = (By.XPATH, "//a[text()='Sortable Data Tables']")
 
     def __init__(self, driver):
         self.driver = driver

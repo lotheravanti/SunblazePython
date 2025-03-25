@@ -10,6 +10,8 @@ from AddRemove import AddRemove
 from Dropdown import Dropdown
 from Homepage import Homepage
 from Inputs import Inputs
+from SortableDataTables import SortableDataTables
+
 
 class SunblazeSelenium(unittest.TestCase):
 
@@ -55,6 +57,23 @@ class SunblazeSelenium(unittest.TestCase):
         """test case B"""
         inputs = Inputs(self.driver)
         inputs.FieldSendKeys(inputs.inputNumber, "23")
+
+    def testSortableDataTables(self):
+        """test case B"""
+        sortableDataTables = SortableDataTables(self.driver)
+        initialTable = sortableDataTables.GetTable(sortableDataTables._tblTable1)
+        # Sort by Last Name Ascending and check if data matches
+        sortByValue = "Last Name"
+        tableDataSortedAsc = sortableDataTables.TableDataSortedBy(initialTable, sortByValue, True)
+        sortableDataTables.SortTableBy(sortByValue)
+        sortedTableAsc = sortableDataTables.GetTable(sortableDataTables._tblTable1)
+        assert tableDataSortedAsc == sortedTableAsc
+        # Sort by Last Name Descending and check if data matches
+        tableDataSortedDesc = sortableDataTables.TableDataSortedBy(initialTable, sortByValue, False)
+        sortableDataTables.SortTableBy(sortByValue)
+        sortedTableDesc = sortableDataTables.GetTable(sortableDataTables._tblTable1)
+        assert tableDataSortedDesc == sortedTableDesc
+        print(f"{sortedTableAsc}")
 
 
 if __name__ == '__main__':
