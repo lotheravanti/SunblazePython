@@ -4,7 +4,7 @@ from selenium.webdriver.support.select import Select
 
 class Homepage(object):
     # Locators are stored in tuple for Python since By type is not a string
-    _txtHomePagetitle = (By.XPATH, "//h1[text()='Welcome to the-internet']")
+    _txtHomePageTitle = (By.XPATH, "//h1[text()='Welcome to the-internet']")
     _lnkAddRemove = (By.XPATH, "//a[text()='Add/Remove Elements']")
     _lnkDropdown = (By.XPATH, "//a[text()='Dropdown']")
     _lnkInputs = (By.XPATH, "//a[text()='Inputs']")

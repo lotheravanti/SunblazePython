@@ -29,7 +29,7 @@ class SunblazeSelenium(unittest.TestCase):
         Note that all test method names must begin with 'test.'"""
         #self.driver.get('https://the-internet.herokuapp.com/')
         homePage = Homepage(self.driver)
-        verifyHomePage = homePage.GetText(homePage._txtHomePagetitle)
+        verifyHomePage = homePage.GetText(homePage._txtHomePageTitle)
         assert verifyHomePage == "Welcome to the-internet"
 
     def testAddRemove(self):

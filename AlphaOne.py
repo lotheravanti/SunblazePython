@@ -117,6 +117,10 @@ class AlphaOne(unittest.TestCase):
         # Check if String is Alphabet
         stringAlphabet = "OnLyAlPhAbEt"
         checkAlphabet = stringAlphabet.isalpha()
+        # Remove all non-alphabet or non-digit characters using [^'exclude'], C# requires Regex
+        stringMixed = "ultr53o?n"
+        removeDigits = re.sub(r"[^a-z]", "", stringMixed)
+        removeAlphabet = re.sub(r"[^0-9]", "", stringMixed)
         # Verify if String starts or ends with
         startsWith = self.message.startswith("Alpha")
         endsWith = self.message.endswith("Initialized")
@@ -146,6 +150,8 @@ class AlphaOne(unittest.TestCase):
         print(f"Removing first and last characters from '{stringValue}' results in '{removeFirstLast1}' and '{removeFirstLast2}'")
         print(f"Remove from '{toRemoveAnchorString}' everything that comes after #: '{removedAnchorString}'")
         print(f"'{stringAlphabet}' contains only alphabet characters: {checkAlphabet}")
+        print(f"'{stringMixed}' removing all non-digit characters: {removeAlphabet}")
+        print(f"'{stringMixed}' removing all non-alphabet characters: {removeDigits}")
         print(f"'{replacedMessage}' starts with Alpha: '{str(startsWith)}' and ends with Initialized: '{str(endsWith)}'")
         print(f"'{upperString}' is all Upper Case: {isUpper}")
         print(f"'{lowerString}' is all Lower Case: {isLower}")
@@ -226,6 +232,12 @@ class AlphaOne(unittest.TestCase):
         print(f"Sum of Object Array '{objArray}'] is {objArraySum}")
         print(f"Converting binary number {binaryArray} to base 10 number is {intConvertedFromBinary}")
 
+    def testSets(self):
+        """test case B"""
+        # Set Operations
+        print("\nSets")
+        print(f"This is a Set and it only contains unique values '{self.declaredSet}'")
+
     def testDictionaries(self):
         """test case B"""
         # Dictionary Operations
@@ -233,7 +245,7 @@ class AlphaOne(unittest.TestCase):
         self.declaredDictionary.update({"F": 6})
 
         print("\nDictionaries")
-        print(f"This is a dictionary '{self.declaredDictionary}'")
+        print(f"This is a Dictionary '{self.declaredDictionary}'")
 
     def testEnumerables(self):
         """Enumerable Operations"""
