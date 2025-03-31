@@ -129,6 +129,10 @@ class AlphaOne(unittest.TestCase):
         isUpper = upperString.isupper()
         lowerString = "alllower"
         isLower = lowerString.islower()
+        # Concatenate range from Array
+        toConcatenateArray = ["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"]
+        #2 is starting index and 6 is end of range
+        stringConcatenated = "".join(toConcatenateArray[2:6])
         # Check if String contains substrings and remove them, leaving only domain: http://, https://, www
         urlString = "http://www.codewars.com/kata/"
         initialUrlString = urlString
@@ -155,6 +159,7 @@ class AlphaOne(unittest.TestCase):
         print(f"'{replacedMessage}' starts with Alpha: '{str(startsWith)}' and ends with Initialized: '{str(endsWith)}'")
         print(f"'{upperString}' is all Upper Case: {isUpper}")
         print(f"'{lowerString}' is all Lower Case: {isLower}")
+        print(f"Creating concatenated string from '[{", ".join(toConcatenateArray)}]' starting from index 2 and concatenating 4 elements: {stringConcatenated}")
         print(f"Domain part of URL '{initialUrlString}' is '{urlString}'")
 
     def testArrays(self):
@@ -218,6 +223,15 @@ class AlphaOne(unittest.TestCase):
         intConvertedFromBinary = 0
         for i in range(len(binaryArray)):
             intConvertedFromBinary += int(binaryArray[i] * math.pow(2, len(binaryArray) - i - 1))
+        # Concatenate each entry N times from existing List
+        toConcatenateArray = ["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"]
+        intConcatenate = 3
+        arrConcatenate = []
+        for i in range(len(toConcatenateArray) - intConcatenate + 1):
+            # i for starting range and i + intConcatenate for end of range
+            toConcatenateSubList = toConcatenateArray[i:i + intConcatenate]
+            stringConcatenated = "".join(toConcatenateSubList)
+            arrConcatenate.append(stringConcatenated)
 
         print("\nArrays")
         print(f"Split String '{stringToArray}' into Array '{arrayFromString}'")
@@ -231,6 +245,7 @@ class AlphaOne(unittest.TestCase):
         print(f"Unsorted Array is '{unsortedArray}', sorted Array is '{sortedArray}'")
         print(f"Sum of Object Array '{objArray}'] is {objArraySum}")
         print(f"Converting binary number {binaryArray} to base 10 number is {intConvertedFromBinary}")
+        print(f"Creating a new Array from '[{", ".join(toConcatenateArray)}]' and concatenating {intConcatenate} times: '[{", ".join(arrConcatenate)}]'")
 
     def testSets(self):
         """test case B"""
