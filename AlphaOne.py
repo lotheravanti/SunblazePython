@@ -258,9 +258,19 @@ class AlphaOne(unittest.TestCase):
         # Dictionary Operations
         # Add entry to dictionary
         self.declaredDictionary.update({"F": 6})
+        # Count occurrences in a String(Ness)
+        stringOccurrences = "abcadcbba"
+        dictOccurrences = {}
+        arrOccurrences = [str(st) for st in stringOccurrences]
+        for i in range(len(arrOccurrences)):
+            if arrOccurrences[i] not in dictOccurrences:
+                dictOccurrences.update({arrOccurrences[i]: 1})
+            else:
+                dictOccurrences[arrOccurrences[i]] += 1
 
         print("\nDictionaries")
         print(f"This is a Dictionary '{self.declaredDictionary}'")
+        print(f"Getting occurrences of each character from String '{stringOccurrences}' as Dictionary {dictOccurrences}")
 
     def testEnumerables(self):
         """Enumerable Operations"""
