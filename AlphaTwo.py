@@ -1,4 +1,6 @@
 #Superclass/Base Class
+from datetime import datetime
+
 class AlphaTwo:
 
     #Fields/Properties
@@ -26,6 +28,37 @@ class AlphaTwo:
     def reverse_string(s):
         return s[::-1]
     #Method overloading is not recommended in Python
+    @staticmethod
+    def getTextFile(filePath):
+        try:
+            # Opening file in Read mode
+            fileReader = open(filePath, "r")
+            fileValueString = ""
+            try:
+                fileValueString = fileReader.read()
+                fileValueDateParse = datetime.strptime(fileValueString, "%a %b %d %H:%M %Y")
+                return fileValueDateParse
+            except ValueError:
+                print(f"Invalid Date format: {fileValueString}")
+            finally:
+                fileReader.close()
+        except FileNotFoundError:
+            print(f"File could not be found at path: {filePath}")
+
+    @staticmethod
+    def getJSON(filePath):
+        try:
+            # Opening file in Read mode
+            fileReader = open(filePath, "r")
+            try:
+                fileValueString = fileReader.read()
+                return fileValueString
+            except:
+                print("File could not be read")
+            finally:
+                fileReader.close()
+        except:
+            print("File could not be found")
 
     #Inner Class
     class InnerAlphaTwo:

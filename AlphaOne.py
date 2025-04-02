@@ -233,7 +233,7 @@ class AlphaOne(unittest.TestCase):
             stringConcatenated = "".join(toConcatenateSubList)
             arrConcatenate.append(stringConcatenated)
 
-        print("\nArrays")
+        print("\nArrays(Lists)")
         print(f"Split String '{stringToArray}' into Array '{arrayFromString}'")
         print(f"String from joined Array is '{joinedStringArray}'")
         print(f"For '{self.stringArray}', Reversed Array is '{reverseArray1}' or '[{", ".join(reverseArray2)}]'")
@@ -377,6 +377,44 @@ class AlphaOne(unittest.TestCase):
         print(f"AlphaTwoSub is a Subclass and has inherited sum_int_array from AlphaTwo to sum '{_alphaTwoSub.alphaTwoIntArray}', resulting in {alphaTwoSubIntSum}")
         print(f"AlphaTwoSub's String has been reversed using Base Class' Method: '{_alphaTwoSub.alphaTwoSubString}'")
         print(_alphaTwo.outerAlphaTwoString)
+
+    def testTryExceptFinally(self):
+        """Exception Handling"""
+        filePathCorrectDate = "resources/Exception Correct Date.txt"
+        filePathIncorrectDate = "resources/Exception Incorrect Date.txt"
+        dataTextFile = AlphaTwo.getTextFile(filePathCorrectDate)
+
+        print("\nException Handling")
+        print(f"Reading Text File and parsing date: {dataTextFile}")
+        #Incorrect Date exception
+        AlphaTwo.getTextFile(filePathIncorrectDate)
+        #Missing path exception
+        AlphaTwo.getTextFile("")
+        #Incorrect path exception
+        AlphaTwo.getTextFile("/main/file.txt")
+
+    def testGetJSONFile(self):
+        """Read JSON file"""
+        filePath = "resources/Resources.json"
+        jsonData = AlphaTwo.getJSON(filePath)
+        root = jsonData.RootElement
+
+        name = root.GetProperty("name").GetString()
+        age = root.GetProperty("age").GetInt32()
+        email = root.GetProperty("email").GetString()
+        isEmployed = root.GetProperty("isEmployed").GetBoolean()
+
+        address = root.GetProperty("address")
+        street = address.GetProperty("street").GetString()
+        city = address.GetProperty("city").GetString()
+        zipCode = address.GetProperty("zipCode").GetString()
+        skills = root.GetProperty("skills") #Gets Array
+
+        print("\nRead JSON file")
+        print(f"Reading JSON root: \nname: '{name}' age: '{age}' email: '{email}' isEmployed: '{isEmployed}'")
+        print(f"Reading JSON address: \nstreet: '{street}' city: '{city}' zipCode: '{zipCode}'")
+        print(f"Reading JSON skills: \n{skills[0]} {skills[1]} {skills[2]} {skills[3]}")
+
 
 if __name__ == '__main__':
     print(f"Starting Tests")
