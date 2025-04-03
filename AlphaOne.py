@@ -397,18 +397,17 @@ class AlphaOne(unittest.TestCase):
         """Read JSON file"""
         filePath = "resources/Resources.json"
         jsonData = AlphaTwo.getJSON(filePath)
-        root = jsonData.RootElement
 
-        name = root.GetProperty("name").GetString()
-        age = root.GetProperty("age").GetInt32()
-        email = root.GetProperty("email").GetString()
-        isEmployed = root.GetProperty("isEmployed").GetBoolean()
+        name = jsonData["name"]
+        age = jsonData["age"]
+        email = jsonData["email"]
+        isEmployed = jsonData["isEmployed"]
 
-        address = root.GetProperty("address")
-        street = address.GetProperty("street").GetString()
-        city = address.GetProperty("city").GetString()
-        zipCode = address.GetProperty("zipCode").GetString()
-        skills = root.GetProperty("skills") #Gets Array
+        address = jsonData["address"]
+        street = address["street"]
+        city = address["city"]
+        zipCode = address["zipCode"]
+        skills = jsonData["skills"] #Gets Array
 
         print("\nRead JSON file")
         print(f"Reading JSON root: \nname: '{name}' age: '{age}' email: '{email}' isEmployed: '{isEmployed}'")

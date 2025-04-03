@@ -1,5 +1,6 @@
 #Superclass/Base Class
 from datetime import datetime
+import json
 
 class AlphaTwo:
 
@@ -51,14 +52,14 @@ class AlphaTwo:
             # Opening file in Read mode
             fileReader = open(filePath, "r")
             try:
-                fileValueString = fileReader.read()
-                return fileValueString
+                jsonData = json.load(fileReader)
+                return jsonData
             except:
                 print("File could not be read")
             finally:
                 fileReader.close()
         except:
-            print("File could not be found")
+            print(f"File could not be found at path: {filePath}")
 
     #Inner Class
     class InnerAlphaTwo:
