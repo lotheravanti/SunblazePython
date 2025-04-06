@@ -74,7 +74,7 @@ class AlphaOne(unittest.TestCase):
         intLeadingZeroes = "0001"
         strIncrementZeroes = str(int(intLeadingZeroes) + 1).zfill(len(intLeadingZeroes))
 
-        print("Integers")
+        print("\nIntegers")
         print(f"Converting String '{stringNumber}' to Integer: {intStringNumber}")
         print(f"{forDivisionInt} can be divided by {divisorInt} a total of {divisionResultInt} times")
         print(f"Current Month {currentMonth} is in Quarter: {currentQuarter}")
@@ -248,16 +248,28 @@ class AlphaOne(unittest.TestCase):
         print(f"Creating a new Array from '[{", ".join(toConcatenateArray)}]' and concatenating {intConcatenate} times: '[{", ".join(arrConcatenate)}]'")
 
     def testSets(self):
-        """test case B"""
-        # Set Operations
+        """Set Operations"""
         print("\nSets")
         print(f"This is a Set and it only contains unique values '{self.declaredSet}'")
 
     def testDictionaries(self):
-        """test case B"""
-        # Dictionary Operations
-        # Add entry to dictionary
+        """Dictionary Operations"""
+        # Create new Dictionary
+        newDict = {}
+        # Add items to Dictionary
         self.declaredDictionary.update({"F": 6})
+        newDict.update({"oranges": 4})
+        newDict.update({"pears": 1})
+        newDict.update({"apples": 2})
+        newDict.update({"bananas": 3})
+        # Get value from Dictionary
+        bananaCount = newDict["bananas"]
+        # Get entry at index of Dictionary
+        newDictEntryAtIndex = (list(newDict)[0], list(newDict.values())[0])
+        # Sort Dictionary by Value using Lambda function
+        newDictSortedByValue = dict(sorted(newDict.items(), key=lambda item: item[1]))
+        # Sort Dictionary by Key
+        newDictSortedByKey = dict(sorted(newDict.items()))
         # Count occurrences in a String(Ness)
         stringOccurrences = "abcadcbba"
         dictOccurrences = {}
@@ -270,6 +282,10 @@ class AlphaOne(unittest.TestCase):
 
         print("\nDictionaries")
         print(f"This is a Dictionary '{self.declaredDictionary}'")
+        print(f"From '{newDict}' getting the number of bananas: {bananaCount}")
+        print(f"From '{newDict}' get Value at Index 0: {newDictEntryAtIndex}")
+        print(f"Sorting '{newDict}' by Value: '{newDictSortedByValue}'")
+        print(f"Sorting '{newDict}' by Key: '{newDictSortedByKey}'")
         print(f"Getting occurrences of each character from String '{stringOccurrences}' as Dictionary {dictOccurrences}")
 
     def testEnumerables(self):
@@ -413,6 +429,11 @@ class AlphaOne(unittest.TestCase):
         print(f"Reading JSON root: \nname: '{name}' age: '{age}' email: '{email}' isEmployed: '{isEmployed}'")
         print(f"Reading JSON address: \nstreet: '{street}' city: '{city}' zipCode: '{zipCode}'")
         print(f"Reading JSON skills: \n{skills[0]} {skills[1]} {skills[2]} {skills[3]}")
+
+    def testExercise(self):
+        """Exercise"""
+        # Set Operations
+        print("\nExercise")
 
 
 if __name__ == '__main__':
