@@ -117,6 +117,12 @@ class AlphaOne(unittest.TestCase):
         # Check if String is Alphabet
         stringAlphabet = "OnLyAlPhAbEt"
         checkAlphabet = stringAlphabet.isalpha()
+        # Check if String contains any characters other than specified combination and also of certain length
+        matchCharactersString = "regex_34"
+        noMatchCharactersString = "H 3"
+        removeDigitsPattern = "[a-z0-9_]{4,16}"
+        matchCharactersBool = bool(re.match(removeDigitsPattern, matchCharactersString)) # cast to boolean
+        noMatchCharactersBool = bool(re.match(removeDigitsPattern, noMatchCharactersString))
         # Remove all non-alphabet or non-digit characters using [^'exclude'], C# requires Regex
         stringMixed = "ultr53o?n"
         removeDigits = re.sub(r"[^a-z]", "", stringMixed)
@@ -154,6 +160,8 @@ class AlphaOne(unittest.TestCase):
         print(f"Removing first and last characters from '{stringValue}' results in '{removeFirstLast1}' and '{removeFirstLast2}'")
         print(f"Remove from '{toRemoveAnchorString}' everything that comes after #: '{removedAnchorString}'")
         print(f"'{stringAlphabet}' contains only alphabet characters: {checkAlphabet}")
+        print(f"'{matchCharactersString}' has length between 4 and 6 and only contains lowercase alphabet,_ and numbers: {matchCharactersBool}")
+        print(f"'{noMatchCharactersString}' has length between 4 and 6 and only contains lowercase alphabet,_ and numbers: {noMatchCharactersBool}")
         print(f"'{stringMixed}' removing all non-digit characters: {removeAlphabet}")
         print(f"'{stringMixed}' removing all non-alphabet characters: {removeDigits}")
         print(f"'{replacedMessage}' starts with Alpha: '{str(startsWith)}' and ends with Initialized: '{str(endsWith)}'")
