@@ -101,6 +101,8 @@ class AlphaOne(unittest.TestCase):
         # Replace multiple characters at once using REGEX, import re
         replaceMultiple = "This will be A String wIthoUt all vOwels"
         replacedMultiple = re.sub(r"[aeiouAEIOU]", "", replaceMultiple)
+        # Add a character N times to a String
+        fiveStars = "*" * 5
         # Replace only N occurrences of String
         nOccurrencesString = "every e in the sentence"
         replaceNOccurrencesString = nOccurrencesString.replace("e", "E", 3)
@@ -154,6 +156,7 @@ class AlphaOne(unittest.TestCase):
         print(f"String length for '{stringValue}' is {lengthString}")
         print(f"Reversed String is '{reverseString}'")
         print(f"Removing all vowels from String '{replaceMultiple}' results in: '{replacedMultiple}'")
+        print(f"Generating strings with 5 times the character *: '{fiveStars}'")
         print(f"Replace 'e' with 'E' only 3 times from '{nOccurrencesString}' is '{replaceNOccurrencesString}'")
         print(f"First character from '{stringValue}' is '{firstOfString}'")
         print(f"Last 3 characters from '{stringValue}' are '{lastOfString}'")
