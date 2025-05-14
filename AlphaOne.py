@@ -196,6 +196,12 @@ class AlphaOne(unittest.TestCase):
         # Reverse Array requires .copy() in Python, otherwise the original might be mutated
         reverseArray1 = self.stringArray.copy()[::-1]
         reverseArray2 = reversed(self.stringArray.copy())
+        # Compare if two Arrays are equal
+        equalArray1 = [ 1, 2, 3, 4 ]
+        equalArray2 = [ 1, 2, 3, 4 ]
+        equalArray3 = [ 1, 2, 5, 4 ]
+        equalsArr1Arr2 = equalArray1 == equalArray2
+        equalsArr1Arr3 = equalArray1 == equalArray3
         # Count occurrences in Array
         occurrencesArray = ["a", "a", "b", "c", "d", "d", "e", "e", "f", "x", "x", "y", "y", "z",]
         occurrencesInArray = ["x", "y", "z"]
@@ -248,6 +254,8 @@ class AlphaOne(unittest.TestCase):
         print(f"Split String '{stringToArray}' into Array '{arrayFromString}'")
         print(f"String from joined Array is '{joinedStringArray}'")
         print(f"For '{self.stringArray}', Reversed Array is '{reverseArray1}' or '[{", ".join(reverseArray2)}]'")
+        print(f"Array '{equalArray1}' is equal to Array '{equalArray2}': {equalsArr1Arr2}")
+        print(f"Array '{equalArray1}' is equal to Array '{equalArray3}': {equalsArr1Arr3}")
         print(f"The characters '{occurrencesInArray}' appear in '{occurrencesArray}' a total of {occurrencesInArrayCount} times")
         print(f"Split {intForArray} to Int Array '{intToArray}'")
         print(f"Split '{stringInt}' to Int Array '{stringToIntArray}'")
