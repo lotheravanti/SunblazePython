@@ -119,6 +119,9 @@ class AlphaOne(unittest.TestCase):
         # Check if String is Alphabet
         stringAlphabet = "OnLyAlPhAbEt"
         checkAlphabet = stringAlphabet.isalpha()
+        # Count number of instances of a Character in String
+        countString = "n___nnnn____n_"
+        countCharInString = countString.count('n')
         # Check if String contains any characters other than specified combination and also of certain length
         matchCharactersString = "regex_34"
         noMatchCharactersString = "H 3"
@@ -150,6 +153,9 @@ class AlphaOne(unittest.TestCase):
             urlString = urlString.split(".")[1]
         else:
             urlString = urlString.split(".")[0]
+        # Single line String Join with conditions replace each single occurrence with (, otherwise ), case-insensitive
+        stringForSingleLine = "@qc!@!CGqDjc@wBbz"
+        stringSingleLine = "".join(["(" if stringForSingleLine.lower().count(c) == 1 else ")" for c in stringForSingleLine.lower()])
 
         # String Interpolation format is easier to work with
         print("\nStrings")
@@ -163,6 +169,7 @@ class AlphaOne(unittest.TestCase):
         print(f"Removing first and last characters from '{stringValue}' results in '{removeFirstLast1}' and '{removeFirstLast2}'")
         print(f"Remove from '{toRemoveAnchorString}' everything that comes after #: '{removedAnchorString}'")
         print(f"'{stringAlphabet}' contains only alphabet characters: {checkAlphabet}")
+        print(f"The character 'n' appears {countCharInString} times in String '{countString}'")
         print(f"'{matchCharactersString}' has length between 4 and 6 and only contains lowercase alphabet,_ and numbers: {matchCharactersBool}")
         print(f"'{noMatchCharactersString}' has length between 4 and 6 and only contains lowercase alphabet,_ and numbers: {noMatchCharactersBool}")
         print(f"'{stringMixed}' removing all non-digit characters: {removeAlphabet}")
@@ -172,9 +179,11 @@ class AlphaOne(unittest.TestCase):
         print(f"'{lowerString}' is all Lower Case: {isLower}")
         print(f"Creating concatenated string from '[{", ".join(toConcatenateArray)}]' starting from index 2 and concatenating 4 elements: {stringConcatenated}")
         print(f"Domain part of URL '{initialUrlString}' is '{urlString}'")
+        print(f"From '{stringForSingleLine}' replace every single occurrence with (, otherwise ): {stringSingleLine}")
 
     def testArrays(self):
         """Array Operations"""
+        # Arrays in Python are Lists
         # Get length of Array
         lengthArray = len(self.stringArray)
         # Create new placeholder Array of fixed length
@@ -350,6 +359,7 @@ class AlphaOne(unittest.TestCase):
             forEachString += s
         # Reverse For Loop
         reverseLoopArray = []
+        # For Loop range(start, end, add or subtract iterator)
         for i in range(len(self.integerArray) - 1, -1, -1):
             reverseLoopArray += str(self.integerArray[i])
         # Count number of matching characters in a String
