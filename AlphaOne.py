@@ -237,8 +237,7 @@ class AlphaOne(unittest.TestCase):
             productArray *= num
         # Sort an Array
         unsortedArray = [9, 5, 2, 7, 1, 8, 3, 4]
-        sortedArray = unsortedArray.copy()
-        sortedArray.sort()
+        sortedArray = sorted(unsortedArray.copy())
         # Iterate over object Array
         objArray = [1, 2, "3", "4"]
         objArraySum = 0
