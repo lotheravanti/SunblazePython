@@ -317,7 +317,12 @@ class AlphaOne(unittest.TestCase):
 
     def testEnumerables(self):
         """Enumerable Operations"""
+        # Create an Array with conditions
+        # Get every odd element(first, third, fith, etc), since i starts at zero, the expression % will be for even indexes
+        arrForCondition = [4, 1, 1, 3, 2, 3]
+        arrCondition = [j for i,j in enumerate(arrForCondition) if i % 2 == 0] # i is the iterator and j is the element itself
         print("\nEnumerable")
+        print(f"From '{arrForCondition}' get every odd element: '{arrCondition}'")
 
     def testConditionals(self):
         """Conditionals"""
