@@ -101,6 +101,10 @@ class AlphaOne(unittest.TestCase):
         # Replace multiple characters at once using REGEX, import re
         replaceMultiple = "This will be A String wIthoUt all vOwels"
         replacedMultiple = re.sub(r"[aeiouAEIOU]", "", replaceMultiple)
+        # Replacing multiple characters each with a different corresponding value using Translation where a Switch would have been used
+        stringForTranslate = "Hello this would be a Translation"
+        translationCipher = str.maketrans("aeiou", "12345") # Replace all vowels with numbers
+        translationString = stringForTranslate.translate(translationCipher)
         # Add a character N times to a String
         fiveStars = "*" * 5
         # Replace only N occurrences of String
@@ -162,6 +166,7 @@ class AlphaOne(unittest.TestCase):
         print(f"String length for '{stringValue}' is {lengthString}")
         print(f"Reversed String is '{reverseString}'")
         print(f"Removing all vowels from String '{replaceMultiple}' results in: '{replacedMultiple}'")
+        print(f"Replacing all vowels with numbers from '{stringForTranslate}' using Translation results in: '{translationString}'")
         print(f"Generating strings with 5 times the character *: '{fiveStars}'")
         print(f"Replace 'e' with 'E' only 3 times from '{nOccurrencesString}' is '{replaceNOccurrencesString}'")
         print(f"First character from '{stringValue}' is '{firstOfString}'")
