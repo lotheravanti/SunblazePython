@@ -117,6 +117,9 @@ class AlphaOne(unittest.TestCase):
         # Remove First and Last characters of String
         removeFirstLast1 = stringValue[1: -1]
         removeFirstLast2 = stringValue[1: len(stringValue) - 1]
+        # Remove last same characters of String
+        stringEndSame = "Hello!!!!!!!!!!!!!"
+        stringEndSameRemove = stringEndSame.rstrip("!")
         # Remove part of String that comes after unique delimiter
         toRemoveAnchorString = "www.codewars.com#about"
         removedAnchorString = toRemoveAnchorString.split("#")[0]
@@ -172,6 +175,7 @@ class AlphaOne(unittest.TestCase):
         print(f"First character from '{stringValue}' is '{firstOfString}'")
         print(f"Last 3 characters from '{stringValue}' are '{lastOfString}'")
         print(f"Removing first and last characters from '{stringValue}' results in '{removeFirstLast1}' and '{removeFirstLast2}'")
+        print(f"Removing any number of the same character at the end of a String '{stringEndSame}' results in '{stringEndSameRemove}'")
         print(f"Remove from '{toRemoveAnchorString}' everything that comes after #: '{removedAnchorString}'")
         print(f"'{stringAlphabet}' contains only alphabet characters: {checkAlphabet}")
         print(f"The character 'n' appears {countCharInString} times in String '{countString}'")
