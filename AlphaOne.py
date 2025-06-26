@@ -53,6 +53,9 @@ class AlphaOne(unittest.TestCase):
         math.ceil(self.floatValue)
         # Round number up
         math.floor(self.floatValue)
+        # Round number to 2 decimal places
+        intNumberForRound = 1.23456
+        intRoundedNumber = round(intNumberForRound,2)
         # Dividing two Integers will always return a whole number
         forDivisionInt = 10
         divisorInt = 3
@@ -76,6 +79,7 @@ class AlphaOne(unittest.TestCase):
 
         print("\nIntegers")
         print(f"Converting String '{stringNumber}' to Integer: {intStringNumber}")
+        print(f"Rounding number '{intNumberForRound}' to 2 decimals: {intRoundedNumber}")
         print(f"{forDivisionInt} can be divided by {divisorInt} a total of {divisionResultInt} times")
         print(f"Current Month {currentMonth} is in Quarter: {currentQuarter}")
         print(f"Increment {intLeadingZeroes} with leading zeroes by 1: {strIncrementZeroes}")
