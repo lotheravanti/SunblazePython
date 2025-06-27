@@ -210,6 +210,9 @@ class AlphaOne(unittest.TestCase):
         self.integerArray.extend([9, 10])
         # Remove item by index from Array
         self.integerArray.pop(9)
+        # Get index of item in array
+        arrNeedle = ["hay", "hay", "hay", "hay", "needle", "hay", "hay"]
+        indexNeedle =  arrNeedle.index("needle")
         # Generate Array from String, remove .split() if String is not a sentence
         stringToArray = "This is an Array from a String."
         arrayFromString = [str(st) for st in stringToArray.split(" ")]
@@ -272,6 +275,7 @@ class AlphaOne(unittest.TestCase):
             arrConcatenate.append(stringConcatenated)
 
         print("\nArrays(Lists)")
+        print(f"From '{arrNeedle}' getting index position of 'needle': {indexNeedle}")
         print(f"Split String '{stringToArray}' into Array '{arrayFromString}'")
         print(f"String from joined Array is '{joinedStringArray}'")
         print(f"For '{self.stringArray}', Reversed Array is '{reverseArray1}' or '[{", ".join(reverseArray2)}]'")
