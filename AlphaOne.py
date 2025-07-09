@@ -43,8 +43,10 @@ class AlphaOne(unittest.TestCase):
         Note that all test method names must begin with 'test.'"""
         #assert foo.bar() == 543, "bar() not calculating values correctly"
         # Integer Operations
-        # Convert String to Integer
+        # Check if String is number
         stringNumber = "12345"
+        stringIsNumber = stringNumber.isnumeric()
+        # Convert String to Integer
         intStringNumber = int(stringNumber)
         # Always return positive number
         negativeInteger = -4
@@ -78,6 +80,7 @@ class AlphaOne(unittest.TestCase):
         strIncrementZeroes = str(int(intLeadingZeroes) + 1).zfill(len(intLeadingZeroes))
 
         print("\nIntegers")
+        print(f"Checking String '{stringNumber}' is number: {stringIsNumber}")
         print(f"Converting String '{stringNumber}' to Integer: {intStringNumber}")
         print(f"Rounding number '{intNumberForRound}' to 2 decimals: {intRoundedNumber}")
         print(f"{forDivisionInt} can be divided by {divisorInt} a total of {divisionResultInt} times")
@@ -338,8 +341,19 @@ class AlphaOne(unittest.TestCase):
         # Get every odd element(first, third, fith, etc), since i starts at zero, the expression % will be for even indexes
         arrForCondition = [4, 1, 1, 3, 2, 3]
         arrCondition = [j for i,j in enumerate(arrForCondition) if i % 2 == 0] # i is the iterator and j is the element itself
+        # Get only numbers or letters from array, two methods
+        arrMixed = ["a", "1", "b", "2", "c", "3"]
+        arrNumbers = [i for i in arrMixed if i.isnumeric()]
+        # Filter creates a stream that runs every argument in an Array through a function
+        def isLetter(st):
+            return st.isalpha()
+        arrLettersStream = filter(isLetter, arrMixed)
+        arrLetters = [i for i in arrLettersStream] # Creating readable Array from Stream
+
         print("\nEnumerable")
         print(f"From '{arrForCondition}' get every odd element: '{arrCondition}'")
+        print(f"From '{arrMixed}' get only numbers: '{arrNumbers}'")
+        print(f"From '{arrMixed}' get only letters: '{arrLetters}'")
 
     def testConditionals(self):
         """Conditionals"""
