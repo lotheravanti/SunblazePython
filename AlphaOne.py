@@ -89,7 +89,12 @@ class AlphaOne(unittest.TestCase):
 
     def testCharacters(self):
         """test case B"""
+        # Convert character to number
+        charArray = ["a", "b", "c", "x", "y", "z"]
+        numFromCharArray = [ord(st) - 96 for st in charArray]
+
         print("\nCharacters")
+        print(f"Converting letters from Array {charArray} to numbers: {numFromCharArray}")
 
     def testStrings(self):
         """String OperationsB"""
@@ -496,7 +501,6 @@ class AlphaOne(unittest.TestCase):
 
     def testExercise(self):
         """Exercise"""
-        # Set Operations
         print("\nExercise")
 
 
