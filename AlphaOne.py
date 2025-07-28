@@ -2,6 +2,7 @@
 import unittest
 import re
 from itertools import product
+from collections import OrderedDict
 
 from AlphaTwo import AlphaTwo, function_min_array, void_function
 from AlphaTwoSub import AlphaTwoSub
@@ -301,8 +302,19 @@ class AlphaOne(unittest.TestCase):
 
     def testSets(self):
         """Set Operations"""
+        # Create ordered Set requires collections import OrderedDict
+        strForSet = "abracadabra"
+        letterCountSet = {f"{s}: {strForSet.count(s)}" for s in OrderedDict.fromkeys(strForSet)}
         print("\nSets")
         print(f"This is a Set and it only contains unique values '{self.declaredSet}'")
+        print(f"Counting every letter in '{strForSet}' and returning as Set: {letterCountSet}")
+
+    def testTupples(self):
+        """Set Operations"""
+        strForTupple = "abracadabra"
+        letterCountTupple = [(s, strForTupple.count(s)) for s in OrderedDict.fromkeys(strForTupple)]
+        print("\nTupples")
+        print(f"Counting every letter in '{strForTupple}' and returning as Tupple: {letterCountTupple}")
 
     def testDictionaries(self):
         """Dictionary Operations"""
