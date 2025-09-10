@@ -111,7 +111,7 @@ class AlphaOne(unittest.TestCase):
         # Can string multiple .replace()
         replaceString = "51NGAP0RE"
         replaceString = replaceString.replace("5","S").replace("1","I").replace("0","O")
-        # Replace multiple characters at once using REGEX, import re
+        # Replace multiple characters at once with REGEX, using import re
         replaceMultiple = "This will be A String wIthoUt all vOwels"
         replacedMultiple = re.sub(r"[aeiouAEIOU]", "", replaceMultiple)
         # Replacing multiple characters each with a different corresponding value using Translation where a Switch would have been used
@@ -148,7 +148,11 @@ class AlphaOne(unittest.TestCase):
         removeDigitsPattern = "[a-z0-9_]{4,16}"
         matchCharactersBool = bool(re.match(removeDigitsPattern, matchCharactersString)) # cast to boolean
         noMatchCharactersBool = bool(re.match(removeDigitsPattern, noMatchCharactersString))
-        # Remove all non-alphabet or non-digit characters using [^'exclude'], C# requires Regex
+        # Check if String contains any of the following
+        stringContains = "The number 3.50 can be spelled Three Fifty"
+        stringContainsBool1 = any(i in stringContains for i in ('three fifty', '3.50'))
+        stringContainsBool2 = bool(re.search(r"3\.50|three fifty", stringContains)) # using import re
+        # Remove all non-alphabet or non-digit characters using [^'exclude'], using import re
         stringMixed = "ultr53o?n"
         removeDigits = re.sub(r"[^a-z]", "", stringMixed)
         removeAlphabet = re.sub(r"[^0-9]", "", stringMixed)
@@ -194,6 +198,7 @@ class AlphaOne(unittest.TestCase):
         print(f"The character 'n' appears {countCharInString} times in String '{countString}'")
         print(f"'{matchCharactersString}' has length between 4 and 6 and only contains lowercase alphabet,_ and numbers: {matchCharactersBool}")
         print(f"'{noMatchCharactersString}' has length between 4 and 6 and only contains lowercase alphabet,_ and numbers: {noMatchCharactersBool}")
+        print(f"'{stringContains}' contains '3.50' or 'Three Fifty' {stringContainsBool1} and {stringContainsBool2}")
         print(f"'{stringMixed}' removing all non-digit characters: {removeAlphabet}")
         print(f"'{stringMixed}' removing all non-alphabet characters: {removeDigits}")
         print(f"'{replacedMessage}' starts with Alpha: '{str(startsWith)}' and ends with Initialized: '{str(endsWith)}'")
