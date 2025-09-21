@@ -2,6 +2,7 @@
 import unittest
 import re
 from itertools import product
+from itertools import combinations
 from collections import OrderedDict
 
 from AlphaTwo import AlphaTwo, function_min_array, void_function
@@ -287,6 +288,11 @@ class AlphaOne(unittest.TestCase):
             toConcatenateSubList = toConcatenateArray[i:i + intConcatenate]
             stringConcatenated = "".join(toConcatenateSubList)
             arrConcatenate.append(stringConcatenated)
+        # Iterate over possible combinations of array using from itertools import combinations
+        iterArray = [45,32,98,101,76,5]
+        sumComboIter = [sum(combo) for combo in combinations(iterArray, 3)] # every combination of 3 elements
+        # Closest value in an array to a given value
+        closestIterValue = min(sumComboIter, key=lambda x: abs(149 - x))
 
         print("\nArrays(Lists)")
         print(f"From '{arrNeedle}' getting index position of 'needle': {indexNeedle}")
@@ -304,6 +310,8 @@ class AlphaOne(unittest.TestCase):
         print(f"Sum of Object Array '{objArray}'] is {objArraySum}")
         print(f"Converting binary number {binaryArray} to base 10 number is {intConvertedFromBinary}")
         print(f"Creating a new Array from '[{", ".join(toConcatenateArray)}]' and concatenating {intConcatenate} times: '[{", ".join(arrConcatenate)}]'")
+        print(f"From Array '{iterArray}' sums of all possible combinations of 3 is '{sorted(sumComboIter)}'")
+        print(f"From Array of Combinations '{sorted(sumComboIter)}' value closest to '149' is '{closestIterValue}'")
 
     def testSets(self):
         """Set Operations"""
