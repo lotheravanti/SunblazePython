@@ -77,9 +77,12 @@ class AlphaOne(unittest.TestCase):
         # Get current quarter of the year
         currentMonth = 5
         currentQuarter = math.ceil(currentMonth / 3.0)
+        # Add leading zeroes
+        intForZeroes = 1
+        strAddLeadingZeroes = f"{intForZeroes:05d}"
         # Increment number with leading zeroes using zfill()
-        intLeadingZeroes = "0001"
-        strIncrementZeroes = str(int(intLeadingZeroes) + 1).zfill(len(intLeadingZeroes))
+        leadingZeroes = "0001"
+        incrementZeroes = str(int(leadingZeroes) + 1).zfill(len(leadingZeroes))
 
         print("\nIntegers")
         print(f"Checking String '{stringNumber}' is number: {stringIsNumber}")
@@ -87,7 +90,8 @@ class AlphaOne(unittest.TestCase):
         print(f"Rounding number '{intNumberForRound}' to 2 decimals: {intRoundedNumber}")
         print(f"{forDivisionInt} can be divided by {divisorInt} a total of {divisionResultInt} times")
         print(f"Current Month {currentMonth} is in Quarter: {currentQuarter}")
-        print(f"Increment {intLeadingZeroes} with leading zeroes by 1: {strIncrementZeroes}")
+        print(f"For number {intForZeroes}, adding 4 leading zeroes: {strAddLeadingZeroes}")
+        print(f"Increment {leadingZeroes} with leading zeroes by 1: {incrementZeroes}")
 
     def testCharacters(self):
         """test case B"""
