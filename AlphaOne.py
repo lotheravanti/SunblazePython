@@ -185,6 +185,11 @@ class AlphaOne(unittest.TestCase):
         # Single line String Join with conditions replace each single occurrence with (, otherwise ), case-insensitive
         stringForSingleLine = "@qc!@!CGqDjc@wBbz"
         stringSingleLine = "".join(["(" if stringForSingleLine.lower().count(c) == 1 else ")" for c in stringForSingleLine.lower()])
+        # Get every Substring of a String
+        stringForSub = "aba12321abba"
+        arrSubs = [stringForSub[i:j] for i in range(len(stringForSub)) for j in range(i + 1, len(stringForSub) + 1)]
+        # Get all Palindromes for Array of Substrings
+        arrPalindromes = [st for st in arrSubs if st == st[::-1] and len(st) > 2]
 
         # String Interpolation format is easier to work with
         print("\nStrings")
@@ -212,6 +217,7 @@ class AlphaOne(unittest.TestCase):
         print(f"Creating concatenated string from '[{", ".join(toConcatenateArray)}]' starting from index 2 and concatenating 4 elements: {stringConcatenated}")
         print(f"Domain part of URL '{initialUrlString}' is '{urlString}'")
         print(f"From '{stringForSingleLine}' replace every single occurrence with (, otherwise ): {stringSingleLine}")
+        print(f"From String '{stringForSub}' generate every Substring and select longest Palindrome '{max(arrPalindromes)}'")
 
     def testArrays(self):
         """Array Operations"""
