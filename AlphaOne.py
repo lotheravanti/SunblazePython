@@ -123,6 +123,8 @@ class AlphaOne(unittest.TestCase):
         stringForTranslate = "Hello this would be a Translation"
         translationCipher = str.maketrans("aeiou", "12345") # Replace all vowels with numbers
         translationString = stringForTranslate.translate(translationCipher)
+        stringPolishDiacritics = "Jędrzej Błądziński"
+        stringRemovePolish = stringPolishDiacritics.translate(str.maketrans("ąćęłńóśźż", "acelnoszz"))
         # Add a character N times to a String
         fiveStars = "*" * 5
         # Replace only N occurrences of String
@@ -197,6 +199,7 @@ class AlphaOne(unittest.TestCase):
         print(f"Reversed String is '{reverseString}'")
         print(f"Removing all vowels from String '{replaceMultiple}' results in: '{replacedMultiple}'")
         print(f"Replacing all vowels with numbers from '{stringForTranslate}' using Translation results in: '{translationString}'")
+        print(f"From Polish name '{stringPolishDiacritics}' removing all diacritics: '{stringRemovePolish}'")
         print(f"Generating strings with 5 times the character *: '{fiveStars}'")
         print(f"Replace 'e' with 'E' only 3 times from '{nOccurrencesString}' is '{replaceNOccurrencesString}'")
         print(f"First character from '{stringValue}' is '{firstOfString}'")
