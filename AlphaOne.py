@@ -1,13 +1,15 @@
 #Press the green button in the gutter to run the script.
-import unittest
+import datetime
+import math
 import re
-from itertools import product
-from itertools import combinations
+import unittest
 from collections import OrderedDict
+from itertools import combinations
+from itertools import product
 
 from AlphaTwo import AlphaTwo, function_min_array, void_function
 from AlphaTwoSub import AlphaTwoSub
-import math
+
 
 class AlphaOne(unittest.TestCase):
     # Primitives
@@ -192,6 +194,12 @@ class AlphaOne(unittest.TestCase):
         arrSubs = [stringForSub[i:j] for i in range(len(stringForSub)) for j in range(i + 1, len(stringForSub) + 1)]
         # Get all Palindromes for Array of Substrings
         arrPalindromes = [st for st in arrSubs if st == st[::-1] and len(st) > 2]
+        # Parsing date from string using import datetime
+        dateUnparsed1 = "July 2, 2015" #notice date has comma
+        dateUnparsed2 = "July 9, 2015"
+        dateParsed1 = datetime.datetime.strptime(dateUnparsed1,'%B %d, %Y').strftime('%d/%m/%Y') #can specify format from input with any delimiters like spaces, - and ,
+        dateParsed2 = datetime.datetime.strptime(dateUnparsed2,'%B %d, %Y').strftime('%d/%m/%Y') #can specify output format with strftime
+        checkDates = dateParsed1 < dateParsed2
 
         # String Interpolation format is easier to work with
         print("\nStrings")
@@ -221,6 +229,8 @@ class AlphaOne(unittest.TestCase):
         print(f"Domain part of URL '{initialUrlString}' is '{urlString}'")
         print(f"From '{stringForSingleLine}' replace every single occurrence with (, otherwise ): {stringSingleLine}")
         print(f"From String '{stringForSub}' generate every Substring and select longest Palindrome '{max(arrPalindromes)}'")
+        print(f"Parsing dates '{dateUnparsed1}' and '{dateUnparsed2}: '{dateParsed1}' and '{dateParsed2}'")
+        print(f"Checking if '{dateParsed1}' is before '{dateParsed2}': {checkDates}")
 
     def testArrays(self):
         """Array Operations"""
