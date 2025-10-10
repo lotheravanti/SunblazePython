@@ -100,9 +100,12 @@ class AlphaOne(unittest.TestCase):
         # Convert character to number
         charArray = ["a", "b", "c", "x", "y", "z"]
         numFromCharArray = [ord(st) - 96 for st in charArray]
+        numForCharArray = [1, 2, 3, 4]
+        charFromNumArray = [chr(i + 96) for i in numForCharArray]
 
         print("\nCharacters")
         print(f"Converting letters from Array {charArray} to numbers: {numFromCharArray}")
+        print(f"Converting numbers from Array {numForCharArray} to letters: {charFromNumArray}")
 
     def testStrings(self):
         """String OperationsB"""
