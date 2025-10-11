@@ -382,6 +382,9 @@ class AlphaOne(unittest.TestCase):
                 dictOccurrences.update({arrOccurrences[i]: 1})
             else:
                 dictOccurrences[arrOccurrences[i]] += 1
+        # Get median of values from dictionary
+        dictForMedian = {"a":2, "b":3, "c":2, "d":1}
+        medianDict = sum(dictForMedian.values())/len(dictForMedian)
 
         print("\nDictionaries")
         print(f"This is a Dictionary '{self.declaredDictionary}'")
@@ -390,6 +393,7 @@ class AlphaOne(unittest.TestCase):
         print(f"Sorting '{newDict}' by Value: '{newDictSortedByValue}'")
         print(f"Sorting '{newDict}' by Key: '{newDictSortedByKey}'")
         print(f"Getting occurrences of each character from String '{stringOccurrences}' as Dictionary {dictOccurrences}")
+        print(f"Median of values from '{dictForMedian}' is : {medianDict}")
 
     def testEnumerables(self):
         """Enumerable Operations"""
