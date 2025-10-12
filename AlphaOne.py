@@ -197,6 +197,9 @@ class AlphaOne(unittest.TestCase):
         arrSubs = [stringForSub[i:j] for i in range(len(stringForSub)) for j in range(i + 1, len(stringForSub) + 1)]
         # Get all Palindromes for Array of Substrings
         arrPalindromes = [st for st in arrSubs if st == st[::-1] and len(st) > 2]
+        # Get Substrings that contain only vowels using import re
+        stringWithVowels = "ultrarevolutionariees"
+        vowelsArray = re.findall(r"[aeiou]+", stringWithVowels)
         # Parsing date from string using import datetime
         dateUnparsed1 = "July 2, 2015" #notice date has comma
         dateUnparsed2 = "July 9, 2015"
@@ -232,6 +235,7 @@ class AlphaOne(unittest.TestCase):
         print(f"Domain part of URL '{initialUrlString}' is '{urlString}'")
         print(f"From '{stringForSingleLine}' replace every single occurrence with (, otherwise ): {stringSingleLine}")
         print(f"From String '{stringForSub}' generate every Substring and select longest Palindrome '{max(arrPalindromes)}'")
+        print(f"From String '{stringWithVowels}' get all Substrings containing only vowels '{vowelsArray}'")
         print(f"Parsing dates '{dateUnparsed1}' and '{dateUnparsed2}: '{dateParsed1}' and '{dateParsed2}'")
         print(f"Checking if '{dateParsed1}' is before '{dateParsed2}': {checkDates}")
 
