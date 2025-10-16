@@ -206,6 +206,9 @@ class AlphaOne(unittest.TestCase):
         dateParsed1 = datetime.datetime.strptime(dateUnparsed1,'%B %d, %Y').strftime('%d/%m/%Y') #can specify format from input with any delimiters like spaces, - and ,
         dateParsed2 = datetime.datetime.strptime(dateUnparsed2,'%B %d, %Y').strftime('%d/%m/%Y') #can specify output format with strftime
         checkDates = dateParsed1 < dateParsed2
+        # Generate custom String from sorted Array with "".join
+        nameArray = [('ARNO', 'ALEX'), ('KERN', 'ANN'), ('BELL', 'SARAH'), ('DORNY', 'PAUL'), ('DORRIES', 'ANDREW'), ('CORNWELL', 'ALISSA'), ('KERN', 'MADISON'), ('ARNO', 'HALEY')]
+        sortedName = ''.join(f'({a}, {b})' for a, b in sorted(nameArray))
 
         # String Interpolation format is easier to work with
         print("\nStrings")
@@ -238,6 +241,7 @@ class AlphaOne(unittest.TestCase):
         print(f"From String '{stringWithVowels}' get all Substrings containing only vowels '{vowelsArray}'")
         print(f"Parsing dates '{dateUnparsed1}' and '{dateUnparsed2}: '{dateParsed1}' and '{dateParsed2}'")
         print(f"Checking if '{dateParsed1}' is before '{dateParsed2}': {checkDates}")
+        print(f"'Sorting Array of names '{nameArray}' \nby Last Name, then First Name as String: {sortedName}")
 
     def testArrays(self):
         """Array Operations"""
