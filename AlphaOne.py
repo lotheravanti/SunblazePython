@@ -247,7 +247,6 @@ class AlphaOne(unittest.TestCase):
         """REGEX Operations"""
         # Using import re
         fileName = "1231231223123131_BIG_FILE_NAME_HERE.EXTENSION.OTHEREXTENSION23423423"
-        consumeText = "This is_an_example and_that_is_it."
         # Match group of numbers(or +), first result
         regNumberOne = re.match(r'\d+', fileName).group(0)
         regNumberOneAlt = re.search(r'\d+', fileName).group(0)
@@ -256,17 +255,26 @@ class AlphaOne(unittest.TestCase):
         # Match first file extension, first result between '.' and '.'
         regExt = re.match(r'.*?\.(.*)\..*', fileName).group(1)
         regExtAlt = re.search(r'\.(.*)\.', fileName).group(1)
+        # Match all file extensions
+        regExtAll = re.findall(r'\.+\w+', fileName)
         # Match all substrings between two delimiters.
         # In order for findall to not 'consume' the results and thus excluding valid consecutive matches, use (?=expression)
-        regExtAllConsumed = re.findall(r"[_]{1}(.*?)[_]{1}", consumeText)
+        consumeText = "This is_an_example and_that_is_it."
+        regExtAllConsumed = regExtAllConsumed = re.findall(r"[_]{1}(.*?)[_]{1}", consumeText)
         regExtAllNotConsumed = re.findall(r"(?=[_]{1}(.*?)[_]{1})", consumeText)
+        # Find date format in text. Here we specify a number of a certain length with \d, example \d{4} for the year
+        # We can also specify between different lengths to include cases with missing leading zeroes: \d{1,2}
+        datesText = "The war lasted from 1939-01-4 to 1945-08-15, but on 1946-1-30 it started again"
+        regDates = re.findall(r"\d{4}-\d{1,2}-\d{1,2}", datesText)
 
         print("\nREGEX")
         print(f"From {fileName} using REGEX to get first number found: {regNumberOne} or {regNumberOneAlt}")
         print(f"From {fileName} using REGEX to get all numbers found: {regNumberAll}")
-        print(f"From {fileName} using REGEX to get all first file extension : {regExt} or {regExtAlt}")
+        print(f"From {fileName} using REGEX to get the first file extension : {regExt} or {regExtAlt}")
+        print(f"From {fileName} using REGEX to get all file extensions : {regExtAll}")
         print(f"From {consumeText} using REGEX to get all substrings between _ and _ consuming the results : {regExtAllConsumed}")
         print(f"From {consumeText} using REGEX to get all substrings between _ and _ not consuming the results : {regExtAllNotConsumed}")
+        print(f"From {datesText} using REGEX to get all dates found, even those with missing leading zeroes: {regDates}")
 
     def testArrays(self):
         """Array Operations"""
