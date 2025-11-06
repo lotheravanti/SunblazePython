@@ -96,7 +96,7 @@ class AlphaOne(unittest.TestCase):
         print(f"Increment {leadingZeroes} with leading zeroes by 1: {incrementZeroes}")
 
     def testCharacters(self):
-        """test case B"""
+        """Character Operations"""
         # Convert character to number
         charArray = ["a", "b", "c", "x", "y", "z"]
         numFromCharArray = [ord(st) - 96 for st in charArray]
@@ -108,7 +108,7 @@ class AlphaOne(unittest.TestCase):
         print(f"Converting numbers from Array {numForCharArray} to letters: {charFromNumArray}")
 
     def testStrings(self):
-        """String OperationsB"""
+        """String Operations"""
         stringValue = "lower case text"
         # Get length of String
         lengthString = len(stringValue)
@@ -242,6 +242,31 @@ class AlphaOne(unittest.TestCase):
         print(f"Parsing dates '{dateUnparsed1}' and '{dateUnparsed2}: '{dateParsed1}' and '{dateParsed2}'")
         print(f"Checking if '{dateParsed1}' is before '{dateParsed2}': {checkDates}")
         print(f"'Sorting Array of names '{nameArray}' \nby Last Name, then First Name as String: {sortedName}")
+
+    def testREGEX(self):
+        """REGEX Operations"""
+        # Using import re
+        fileName = "1231231223123131_BIG_FILE_NAME_HERE.EXTENSION.OTHEREXTENSION23423423"
+        consumeText = "This is_an_example and_that_is_it."
+        # Match group of numbers(or +), first result
+        regNumberOne = re.match(r'\d+', fileName).group(0)
+        regNumberOneAlt = re.search(r'\d+', fileName).group(0)
+        # Match group of numbers, all results
+        regNumberAll = re.findall(r'\d+', fileName)
+        # Match first file extension, first result between '.' and '.'
+        regExt = re.match(r'.*?\.(.*)\..*', fileName).group(1)
+        regExtAlt = re.search(r'\.(.*)\.', fileName).group(1)
+        # Match all substrings between two delimiters.
+        # In order for findall to not 'consume' the results and thus excluding valid consecutive matches, use (?=expression)
+        regExtAllConsumed = re.findall(r"[_]{1}(.*?)[_]{1}", consumeText)
+        regExtAllNotConsumed = re.findall(r"(?=[_]{1}(.*?)[_]{1})", consumeText)
+
+        print("\nREGEX")
+        print(f"From {fileName} using REGEX to get first number found: {regNumberOne} or {regNumberOneAlt}")
+        print(f"From {fileName} using REGEX to get all numbers found: {regNumberAll}")
+        print(f"From {fileName} using REGEX to get all first file extension : {regExt} or {regExtAlt}")
+        print(f"From {consumeText} using REGEX to get all substrings between _ and _ consuming the results : {regExtAllConsumed}")
+        print(f"From {consumeText} using REGEX to get all substrings between _ and _ not consuming the results : {regExtAllNotConsumed}")
 
     def testArrays(self):
         """Array Operations"""
