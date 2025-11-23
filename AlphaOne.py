@@ -569,6 +569,20 @@ class AlphaOne(unittest.TestCase):
         print(f"AlphaTwoSub's String has been reversed using Base Class' Method: '{_alphaTwoSub.alphaTwoSubString}'")
         print(_alphaTwo.outerAlphaTwoString)
 
+    def testFP(self):
+        """FP"""
+        # Have a function return another function
+        # Note the first function does not need to have the second parameter defined
+        def addFP(n):
+            def subAddFP(m):
+                return n + m
+            return subAddFP
+        # Pass the parameters to the function in this way (n) for the first then (m) for the sub function
+        numAddFP = addFP(5)(3)
+
+        print("\nFP")
+        print(f"Returning a function from another function: {numAddFP}")
+
     def testTryExceptFinally(self):
         """Exception Handling"""
         filePathCorrectDate = "resources/Exception Correct Date.txt"
