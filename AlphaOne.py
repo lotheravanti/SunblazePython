@@ -86,6 +86,11 @@ class AlphaOne(unittest.TestCase):
         # Increment number with leading zeroes using zfill()
         leadingZeroes = "0001"
         incrementZeroes = str(int(leadingZeroes) + 1).zfill(len(leadingZeroes))
+        # Generate Fibonacci sequence up to a number
+        numForFib = 200
+        fibArr = [0, 1]
+        while fibArr[-1] + fibArr[-2] <= numForFib:
+            fibArr.append(fibArr[-1] + fibArr[-2])
 
         print("\nIntegers")
         print(f"Checking String '{stringNumber}' is number: {stringIsNumber}")
@@ -95,6 +100,7 @@ class AlphaOne(unittest.TestCase):
         print(f"Current Month {currentMonth} is in Quarter: {currentQuarter}")
         print(f"For number {intForZeroes}, adding 4 leading zeroes: {strAddLeadingZeroes}")
         print(f"Increment {leadingZeroes} with leading zeroes by 1: {incrementZeroes}")
+        print(f"Generate Fibonacci sequence up to {numForFib} results in: {fibArr}")
 
     def testCharacters(self):
         """Character Operations"""
