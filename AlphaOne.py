@@ -454,6 +454,9 @@ class AlphaOne(unittest.TestCase):
         # Get every odd element(first, third, fith, etc), since i starts at zero, the expression % will be for even indexes
         arrForCondition = [4, 1, 1, 3, 2, 3]
         arrCondition = [j for i,j in enumerate(arrForCondition) if i % 2 == 0] # i is the iterator and j is the element itself
+        # Create copy of Array except for an index
+        indexExclude = 2
+        arrMinusIndex = [x for i,x in enumerate(arrForCondition) if i != indexExclude]
         # Reverse every other word in a String
         stringForReverse = "This is a String that will have words reversed"
         arrReversedOther = " ".join([y[::-1] if x % 2 else y for x, y in enumerate(stringForReverse.split())])
@@ -468,6 +471,7 @@ class AlphaOne(unittest.TestCase):
 
         print("\nEnumerable")
         print(f"From '{arrForCondition}' get every odd element: '{arrCondition}'")
+        print(f"From '{arrForCondition}' excluding element at index {indexExclude} returns: '{arrMinusIndex}'")
         print(f"From '{stringForReverse}' reverse every other word: '{arrReversedOther}'")
         print(f"From '{arrMixed}' get only numbers: '{arrNumbers}'")
         print(f"From '{arrMixed}' get only letters: '{arrLetters}'")
