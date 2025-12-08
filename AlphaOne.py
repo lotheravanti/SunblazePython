@@ -207,6 +207,9 @@ class AlphaOne(unittest.TestCase):
         # Get Substrings that contain only vowels using import re
         stringWithVowels = "ultrarevolutionariees"
         vowelsArray = re.findall(r"[aeiou]+", stringWithVowels)
+        # Perform arithmetical operations on String
+        arithmString = "1+2*3-4/2"
+        arithmNumber = eval(arithmString)
         # Parsing date from string using import datetime
         dateUnparsed1 = "July 2, 2015" #notice date has comma
         dateUnparsed2 = "July 9, 2015"
@@ -250,6 +253,7 @@ class AlphaOne(unittest.TestCase):
         print(f"From '{stringForSingleLine}' replace every single occurrence with (, otherwise ): {stringSingleLine}")
         print(f"From String '{stringForSub}' generate every Substring and select longest Palindrome '{max(arrPalindromes)}'")
         print(f"From String '{stringWithVowels}' get all Substrings containing only vowels '{vowelsArray}'")
+        print(f"With String '{arithmString}' return result of arithmetical operations: '{arithmNumber}'")
         print(f"Parsing dates '{dateUnparsed1}' and '{dateUnparsed2}: '{dateParsed1}' and '{dateParsed2}'")
         print(f"Checking if '{dateParsed1}' is before '{dateParsed2}': {checkDates}")
         print(f"The number of days between '{date2}' and '{date1}' is: {numDays}")
