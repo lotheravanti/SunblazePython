@@ -352,6 +352,10 @@ class AlphaOne(unittest.TestCase):
         # Sort an Array
         unsortedArray = [9, 5, 2, 7, 1, 8, 3, 4]
         sortedArray = sorted(unsortedArray.copy())
+        # Generate Array of numbers with Step
+        startStep = 2
+        endStep = 10
+        arrStep = [i for i in range(startStep, endStep + 1, 2)] # (start, end, step)
         # Iterate over object Array
         objArray = [1, 2, "3", "4"]
         objArraySum = 0
@@ -390,6 +394,7 @@ class AlphaOne(unittest.TestCase):
         print(f"Minimum value of Array '{self.integerArray}' is {minArray}, Maximum value is {maxArray}")
         print(f"For Integer Array '{self.integerArray}', Sum is '{sumArray}', Average is '{averageArray}' and Product is'{productArray}'")
         print(f"Unsorted Array is '{unsortedArray}', sorted Array is '{sortedArray}'")
+        print(f"Generating Array of numbers from 2 to 10 with Step of 2: {arrStep}")
         print(f"Sum of Object Array '{objArray}'] is {objArraySum}")
         print(f"Converting binary number {binaryArray} to base 10 number is {intConvertedFromBinary}")
         print(f"Creating a new Array from '[{", ".join(toConcatenateArray)}]' and concatenating {intConcatenate} times: '[{", ".join(arrConcatenate)}]'")
