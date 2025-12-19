@@ -3,6 +3,7 @@ import datetime
 import math
 import re
 import unittest
+import numpy as np
 from collections import OrderedDict
 from datetime import date
 from itertools import combinations
@@ -380,6 +381,34 @@ class AlphaOne(unittest.TestCase):
         sumComboIter = [sum(combo) for combo in combinations(iterArray, 3)] # every combination of 3 elements
         # Closest value in an array to a given value
         closestIterValue = min(sumComboIter, key=lambda x: abs(149 - x))
+        # Find unique element coordinate in 2D array using numpy as np
+        mazeArr = [[1, 1, 1, 1, 1, 1, 1],
+                [1, 0, 0, 0, 0, 0, 3],
+                [1, 0, 1, 0, 1, 0, 1],
+                [0, 0, 1, 0, 0, 0, 1],
+                [1, 0, 1, 0, 1, 0, 1],
+                [1, 0, 0, 0, 0, 0, 1],
+                [1, 2, 1, 0, 1, 0, 1]]
+        mazeStart = (0, 0)
+        arrNump = np.array(mazeArr)
+        for index, item in np.ndenumerate(arrNump):
+            if item == 2:
+                mazeStart = index
+        mazeStart = list(mazeStart) # convert from tuple to list
+        coordElem = [mazeStart[0], mazeStart[1]]
+        # Navigate through the 2D array following directions
+        mazeDir = ["N", "N", "N", "N", "N", "E", "E", "E", "E", "E"]
+        for d in mazeDir:
+            match d:
+                case "N":
+                    coordElem[0] -= 1
+                case "S":
+                    coordElem[0] += 1
+                case "E":
+                    coordElem[1] += 1
+                case "W":
+                    coordElem[1] -= 1
+        mazeEnd = mazeArr[coordElem[0]][coordElem[1]]
 
         print("\nArrays(Lists)")
         print(f"From '{arrNeedle}' getting index position of 'needle': {indexNeedle}")
@@ -400,6 +429,7 @@ class AlphaOne(unittest.TestCase):
         print(f"Creating a new Array from '[{", ".join(toConcatenateArray)}]' and concatenating {intConcatenate} times: '[{", ".join(arrConcatenate)}]'")
         print(f"From Array '{iterArray}' sums of all possible combinations of 3 is '{sorted(sumComboIter)}'")
         print(f"From Array of Combinations '{sorted(sumComboIter)}' value closest to '149' is '{closestIterValue}'")
+        print(f"Navigating through maze starting element element {mazeArr[mazeStart[0]][mazeStart[1]]} at {mazeStart} to {mazeEnd} at {coordElem}")
 
     def testSets(self):
         """Set Operations"""
