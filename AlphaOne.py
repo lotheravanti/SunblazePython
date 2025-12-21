@@ -539,8 +539,23 @@ class AlphaOne(unittest.TestCase):
                 waitForSwitch = "Wait for Green Light"
             case _:
                 waitForSwitch = "Wait for Yellow Light"
+        # Applying logical operator on an array of booleans
+        boolArr = [True, True, False]
+        andBool = boolArr[0]
+        orBool = boolArr[0]
+        xorBool = boolArr[0]
+        # To apply the operator in pairs, instantiate with the value of the first element, then iterate from second element
+        for b in boolArr[1:]:
+            andBool &= b # add AND between all booleans
+        for b in boolArr[1:]:
+            orBool |= b # add OR between all booleans
+        for b in boolArr[1:]:
+            xorBool ^= b # add XOR between all booleans
 
         print("\nConditionals")
+        print(f"For Array of booleans {boolArr},  apply AND between each element: {andBool}")
+        print(f"For Array of booleans {boolArr},  apply OR between each element: {orBool}")
+        print(f"For Array of booleans {boolArr},  apply XOR between each element: {xorBool}")
 
     def testForLoops(self):
         """For Loops"""
