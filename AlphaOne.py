@@ -184,6 +184,9 @@ class AlphaOne(unittest.TestCase):
         isUpper = upperString.isupper()
         lowerString = "alllower"
         isLower = lowerString.islower()
+        # Swap case of letters
+        stringForSwap = "aBcDE"
+        stringSwapped = stringForSwap.swapcase()
         # Concatenate range from Array
         toConcatenateArray = ["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"]
         #2 is starting index and 6 is end of range
@@ -249,6 +252,7 @@ class AlphaOne(unittest.TestCase):
         print(f"'{replacedMessage}' starts with Alpha: '{str(startsWith)}' and ends with Initialized: '{str(endsWith)}'")
         print(f"'{upperString}' is all Upper Case: {isUpper}")
         print(f"'{lowerString}' is all Lower Case: {isLower}")
+        print(f"'{stringForSwap}' with Case swapped is : {stringSwapped}")
         print(f"Creating concatenated string from '[{", ".join(toConcatenateArray)}]' starting from index 2 and concatenating 4 elements: {stringConcatenated}")
         print(f"Domain part of URL '{initialUrlString}' is '{urlString}'")
         print(f"From '{stringForSingleLine}' replace every single occurrence with (, otherwise ): {stringSingleLine}")
