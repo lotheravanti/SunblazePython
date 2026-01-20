@@ -271,6 +271,9 @@ class AlphaOne(unittest.TestCase):
         # Match group of numbers(or +), first result
         regNumberOne = re.match(r'\d+', fileName).group(0)
         regNumberOneAlt = re.search(r'\d+', fileName).group(0)
+        # Get all numbers from a String
+        regStringNumbers = "a 54b.i2...11ghl345"
+        regSumNumbers = sum(int(x) for x in re.findall(r"(\d+)", regStringNumbers))
         # Match group of numbers, all results
         regNumberAll = re.findall(r'\d+', fileName)
         # Match first file extension, first result between '.' and '.'
@@ -290,6 +293,7 @@ class AlphaOne(unittest.TestCase):
 
         print("\nREGEX")
         print(f"From {fileName} using REGEX to get first number found: {regNumberOne} or {regNumberOneAlt}")
+        print(f"From '{regStringNumbers}' using REGEX to get add all numbers: {regSumNumbers}")
         print(f"From {fileName} using REGEX to get all numbers found: {regNumberAll}")
         print(f"From {fileName} using REGEX to get the first file extension : {regExt} or {regExtAlt}")
         print(f"From {fileName} using REGEX to get all file extensions : {regExtAll}")
