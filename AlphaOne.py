@@ -328,6 +328,10 @@ class AlphaOne(unittest.TestCase):
         # Reverse Array requires .copy() in Python, otherwise the original might be mutated
         reverseArray1 = self.stringArray.copy()[::-1]
         reverseArray2 = reversed(self.stringArray.copy())
+        # Sort Array that contains both Lower and Upper Case
+        arrayCases = ["amon", "Beer", "titan", "Seer", "box", "lore", "Lore", "scent"]
+        simpleSort = sorted(arrayCases)
+        caseSort = sorted(arrayCases, key = lambda s: s.casefold())
         # Compare if two Arrays are equal
         equalArray1 = [ 1, 2, 3, 4 ]
         equalArray2 = [ 1, 2, 3, 4 ]
@@ -423,6 +427,8 @@ class AlphaOne(unittest.TestCase):
         print(f"Split String '{stringToArray}' into Array '{arrayFromString}'")
         print(f"String from joined Array is '{joinedStringArray}'")
         print(f"For '{self.stringArray}', Reversed Array is '{reverseArray1}' or '[{", ".join(reverseArray2)}]'")
+        print(f"Sorting '{arrayCases}' with simple sort: {simpleSort}")
+        print(f"Sorting '{arrayCases}' regardless of Case: {caseSort}")
         print(f"Array '{equalArray1}' is equal to Array '{equalArray2}': {equalsArr1Arr2}")
         print(f"Array '{equalArray1}' is equal to Array '{equalArray3}': {equalsArr1Arr3}")
         print(f"The characters '{occurrencesInArray}' appear in '{occurrencesArray}' a total of {occurrencesInArrayCount} times")
