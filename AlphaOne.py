@@ -421,6 +421,10 @@ class AlphaOne(unittest.TestCase):
                 case "W":
                     coordElem[1] -= 1
         mazeEnd = mazeArr[coordElem[0]][coordElem[1]]
+        # Extend an Array
+        arrayForExtend = [1,2,3]
+        arrayToExtend = [4,5,6]
+        arrayToExtend.extend(arrayForExtend)
 
         print("\nArrays(Lists)")
         print(f"From '{arrNeedle}' getting index position of 'needle': {indexNeedle}")
@@ -444,6 +448,7 @@ class AlphaOne(unittest.TestCase):
         print(f"From Array '{iterArray}' sums of all possible combinations of 3 is '{sorted(sumComboIter)}'")
         print(f"From Array of Combinations '{sorted(sumComboIter)}' value closest to '149' is '{closestIterValue}'")
         print(f"Navigating through maze starting element element {mazeArr[mazeStart[0]][mazeStart[1]]} at {mazeStart} to {mazeEnd} at {coordElem}")
+        print(f"Extending Array with '{arrayForExtend}' results in: {arrayToExtend}")
 
     def testSets(self):
         """Set Operations"""
