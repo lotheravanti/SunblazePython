@@ -422,8 +422,8 @@ class AlphaOne(unittest.TestCase):
                     coordElem[1] -= 1
         mazeEnd = mazeArr[coordElem[0]][coordElem[1]]
         # Extend an Array
-        arrayForExtend = [1,2,3]
-        arrayToExtend = [4,5,6]
+        arrayForExtend = [[4,5], [6,7]]
+        arrayToExtend = [1,2,3]
         arrayToExtend.extend(arrayForExtend)
 
         print("\nArrays(Lists)")
@@ -662,9 +662,16 @@ class AlphaOne(unittest.TestCase):
             return subAddFP
         # Pass the parameters to the function in this way (n) for the first then (m) for the sub function
         numAddFP = addFP(5)(3)
+        # Process dynamic number of Arguments passed to Function
+        # Use *args for dynamic list of arguments
+        def sumArgs(*args):
+            return sum(args)
+        sumOfArgs1 = sumArgs(1,2,3)
+        sumOfArgs2 = sumArgs(4,5,6)
 
         print("\nFP")
         print(f"Returning a function from another function: {numAddFP}")
+        print(f"Calculating Sum of Arguments pass dynamically for Example1 (1,2,3): {sumOfArgs1} and Example2 (4,5,6): {sumOfArgs2}")
 
     def testTryExceptFinally(self):
         """Exception Handling"""
