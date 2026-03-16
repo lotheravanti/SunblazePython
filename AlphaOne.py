@@ -67,6 +67,7 @@ class AlphaOne(unittest.TestCase):
         # Dividing two Integers will always return a whole number
         forDivisionInt = 10
         divisorInt = 3
+        divisorInt = 3
         divisionResultInt = int(forDivisionInt / divisorInt)
         # Get number at the power of N
         numberForPower = 7
@@ -227,6 +228,13 @@ class AlphaOne(unittest.TestCase):
         # Generate custom String from sorted Array with "".join
         nameArray = [('ARNO', 'ALEX'), ('KERN', 'ANN'), ('BELL', 'SARAH'), ('DORNY', 'PAUL'), ('DORRIES', 'ANDREW'), ('CORNWELL', 'ALISSA'), ('KERN', 'MADISON'), ('ARNO', 'HALEY')]
         sortedName = ''.join(f'({a}, {b})' for a, b in sorted(nameArray))
+        # Get list of items from String without spaces and also custom sorted
+        orderInputString = "friespizzacokeburgersandwichburgeronionrings"
+        menuArray = ['burger', 'fries', 'pizza', 'sandwich', 'onionrings', 'coke']
+        orderCleanString = ''
+        for i in menuArray:
+            orderCleanString += (i.capitalize() + ' ') * orderInputString.count(i) # using Count for number of instances item is found
+        orderCleanString = orderCleanString[:-1] #remove trailing space
 
         # String Interpolation format is easier to work with
         print("\nStrings")
@@ -263,6 +271,7 @@ class AlphaOne(unittest.TestCase):
         print(f"Checking if '{dateParsed1}' is before '{dateParsed2}': {checkDates}")
         print(f"The number of days between '{date2}' and '{date1}' is: {numDays}")
         print(f"'Sorting Array of names '{nameArray}' \nby Last Name, then First Name as String: {sortedName}")
+        print(f"Getting order from Input '{orderInputString}' and sorting it by Menu '{menuArray}' results in: [{orderCleanString}]")
 
     def testREGEX(self):
         """REGEX Operations"""
