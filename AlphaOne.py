@@ -579,11 +579,18 @@ class AlphaOne(unittest.TestCase):
             orBool |= b # add OR between all booleans
         for b in boolArr[1:]:
             xorBool ^= b # add XOR between all booleans
+        # Check if argument is an instance of
+        stringInstance = "string"
+        arrayInstance = [1,2,3]
+        isInstString = isinstance(stringInstance, str)
+        isInstArray = isinstance(arrayInstance, list)
 
         print("\nConditionals")
         print(f"For Array of booleans {boolArr},  apply AND between each element: {andBool}")
         print(f"For Array of booleans {boolArr},  apply OR between each element: {orBool}")
         print(f"For Array of booleans {boolArr},  apply XOR between each element: {xorBool}")
+        print(f"{stringInstance}, is instance of String: {isInstString}")
+        print(f"{arrayInstance}, is instance of List: {isInstArray}")
 
     def testForLoops(self):
         """For Loops"""
