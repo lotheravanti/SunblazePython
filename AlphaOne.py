@@ -434,6 +434,11 @@ class AlphaOne(unittest.TestCase):
         arrayForExtend = [[4,5], [6,7]]
         arrayToExtend = [1,2,3]
         arrayToExtend.extend(arrayForExtend)
+        arrayForBingo = ["A", "C", "B", "M", "I", "N", "G", "O"]
+        arrayBingo = ["B", "I", "N", "G", "O"]
+        boolBingo1 = all(c for c in arrayForBingo for d in arrayBingo)
+        boolBingo2 = set(arrayBingo).issubset(set(arrayForBingo))
+
 
         print("\nArrays(Lists)")
         print(f"From '{arrNeedle}' getting index position of 'needle': {indexNeedle}")
@@ -458,6 +463,7 @@ class AlphaOne(unittest.TestCase):
         print(f"From Array of Combinations '{sorted(sumComboIter)}' value closest to '149' is '{closestIterValue}'")
         print(f"Navigating through maze starting element element {mazeArr[mazeStart[0]][mazeStart[1]]} at {mazeStart} to {mazeEnd} at {coordElem}")
         print(f"Extending Array with '{arrayForExtend}' results in: {arrayToExtend}")
+        print(f"Array '{arrayForBingo}' contains every element in Array {arrayBingo}: {boolBingo1} and {boolBingo2}")
 
     def testSets(self):
         """Set Operations"""
