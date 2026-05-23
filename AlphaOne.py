@@ -493,6 +493,8 @@ class AlphaOne(unittest.TestCase):
         newDict.update({"bananas": 3})
         # Get value from Dictionary
         bananaCount = newDict["bananas"]
+        # Use Get when key might not exist in Dictionary
+        peachCount = newDict.get("peaches")
         # Get entry at index of Dictionary
         newDictEntryAtIndex = (list(newDict)[0], list(newDict.values())[0])
         # Sort Dictionary by Value using Lambda function
@@ -515,6 +517,7 @@ class AlphaOne(unittest.TestCase):
         print("\nDictionaries")
         print(f"This is a Dictionary '{self.declaredDictionary}'")
         print(f"From '{newDict}' getting the number of bananas: {bananaCount}")
+        print(f"From '{newDict}' getting the number of peaches: {peachCount}")
         print(f"From '{newDict}' get Value at Index 0: {newDictEntryAtIndex}")
         print(f"Sorting '{newDict}' by Value: '{newDictSortedByValue}'")
         print(f"Sorting '{newDict}' by Key: '{newDictSortedByKey}'")
