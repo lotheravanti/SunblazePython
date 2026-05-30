@@ -299,6 +299,30 @@ class AlphaOne(unittest.TestCase):
         # We can also specify between different lengths to include cases with missing leading zeroes: \d{1,2}
         datesText = "The war lasted from 1939-01-4 to 1945-08-15, but on 1946-1-30 it started again"
         regDates = re.findall(r"\d{4}-\d{1,2}-\d{1,2}", datesText)
+        # Cleaning up a Dirty Phone Directory using Regex
+        phoneDirectoryDirty = ["/+1-541-754-3010 156 Alphand_St. <J Steeve>", "133, Green, Rd. <E Kustur> NY-56423 ;+1-541-914-3010;",
+        "+1-541-984-3012 <P Reed> /PO Box 530; Pollocksville, NC-28573", " :+1-321-512-2222 <Paul Dive> Sequoia Alley PQ-67209",
+        "+1-099-500-8000 <Peter Crush> Labrador Bd.", " +1-931-512-4855 <William Saurin> Bison Street CQ-23071"]
+        phoneDirectoryClean = []
+
+        for i in range(len(phoneDirectoryDirty)):
+            phoneEntry = phoneDirectoryDirty[i]
+            # Name is always between < and >
+            namePattern = re.search(r'\<(.*?)\>', phoneDirectoryDirty[i])
+            # Use group(1) to get the actual result, not the match ex: J Steeve and not <J Steeve>
+            name = namePattern.group(1)
+            # Cleaning up the Entry each time removing the Name and Phone number so that all that remains will be the Address
+            phoneEntry = phoneEntry.replace(namePattern.group(0), "")
+            # Phone patter always has a + in front and may or may not have another special character in front as well
+            # \W{1,2} will match any comibation of 1-2 special characters
+            # Everything outside the () will be excluded from the result, again group(0) is the match, group(1) is the actual desired result
+            phonePattern = re.search(r'\W{1,2}(\d{1,2}-\d{3}-\d{3}-\d{4})\W{1}', phoneDirectoryDirty[i])
+            phone = phonePattern.group(1)
+            phoneEntry = phoneEntry.replace(phonePattern.group(0), "")
+            adress = phoneEntry
+            # From what remains of the Entry, strip any trailing spaces before and after, as well as any special characters other than - and .
+            adress = re.sub(r'[^a-zA-Z0-9-. ]', ' ', adress).strip().replace("  ", " ")
+            phoneDirectoryClean.append(f"Phone => {phone}, Name => {name}, Address => {adress}")
 
         print("\nREGEX")
         print(f"From {fileName} using REGEX to get first number found: {regNumberOne} or {regNumberOneAlt}")
@@ -309,6 +333,8 @@ class AlphaOne(unittest.TestCase):
         print(f"From {consumeText} using REGEX to get all substrings between _ and _ consuming the results : {regExtAllConsumed}")
         print(f"From {consumeText} using REGEX to get all substrings between _ and _ not consuming the results : {regExtAllNotConsumed}")
         print(f"From {datesText} using REGEX to get all dates found, even those with missing leading zeroes: {regDates}")
+        print(f"Dirty Phone Directory {phoneDirectoryDirty}")
+        print(f"Clean Phone Directory {phoneDirectoryClean}")
 
     def testArrays(self):
         """Array Operations"""
