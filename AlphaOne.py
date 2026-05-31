@@ -464,6 +464,11 @@ class AlphaOne(unittest.TestCase):
         arrayBingo = ["B", "I", "N", "G", "O"]
         boolBingo1 = all(c for c in arrayForBingo for d in arrayBingo)
         boolBingo2 = set(arrayBingo).issubset(set(arrayForBingo))
+        # Get elements from Array by type
+        mixedArr = ["Apple",46,"287",574,"Peach","3","69",78,"Grape","423"]
+        numArr = sorted([i for i in mixedArr if type(i) is int])
+        alphArr = sorted([i for i in mixedArr if type(i) is not int])
+        numAlphSortedArr = numArr + alphArr
 
 
         print("\nArrays(Lists)")
@@ -490,6 +495,7 @@ class AlphaOne(unittest.TestCase):
         print(f"Navigating through maze starting element element {mazeArr[mazeStart[0]][mazeStart[1]]} at {mazeStart} to {mazeEnd} at {coordElem}")
         print(f"Extending Array with '{arrayForExtend}' results in: {arrayToExtend}")
         print(f"Array '{arrayForBingo}' contains every element in Array {arrayBingo}: {boolBingo1} and {boolBingo2}")
+        print(f"Sorting Array with mixed variable types '{mixedArr}' first by numbers, then strings alphabetically: {numAlphSortedArr}")
 
     def testSets(self):
         """Set Operations"""
