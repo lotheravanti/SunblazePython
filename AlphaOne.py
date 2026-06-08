@@ -584,6 +584,14 @@ class AlphaOne(unittest.TestCase):
         print(f"From '{arrMixed}' get only numbers: '{arrNumbers}'")
         print(f"From '{arrMixed}' get only letters: '{arrLetters}'")
 
+    def testLambda(self):
+        """Lambda Operations"""
+        # Create sorted String using Lambda, all Upper Case characters appear in order followed by their Lower Case counterparts
+        unsortedString = "AazaaZaazz"
+        sortedString = ''.join(sorted(unsortedString,key=lambda c:(c.upper(),c.islower())))
+
+        print(f"Sorting '{unsortedString}' by Upper Case followed by all Lower Case instances using Lambda: '{sortedString}'")
+
     def testConditionals(self):
         """Conditionals"""
         # If Else Statement
