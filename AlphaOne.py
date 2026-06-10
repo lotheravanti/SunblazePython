@@ -462,8 +462,14 @@ class AlphaOne(unittest.TestCase):
         arrayToExtend.extend(arrayForExtend)
         arrayForBingo = ["A", "C", "B", "M", "I", "N", "G", "O"]
         arrayBingo = ["B", "I", "N", "G", "O"]
+        # all() returns True if all conditions within it are true
         boolBingo1 = all(c for c in arrayForBingo for d in arrayBingo)
         boolBingo2 = set(arrayBingo).issubset(set(arrayForBingo))
+        # Check all instances if they are either Integer or Float with .0 for decimal
+        allInstancesArray1 = [1.0, 2.0, 3.0, 4]
+        allInstancesArray2 = [1, "-2", True]
+        def checkInstances(st):
+            return all(isinstance(x, (int, float)) and x == int(x) for x in st)
         # Get elements from Array by type
         mixedArr = ["Apple",46,"287",574,"Peach","3","69",78,"Grape","423"]
         numArr = sorted([i for i in mixedArr if type(i) is int])
@@ -496,6 +502,8 @@ class AlphaOne(unittest.TestCase):
         print(f"Extending Array with '{arrayForExtend}' results in: {arrayToExtend}")
         print(f"Array '{arrayForBingo}' contains every element in Array {arrayBingo}: {boolBingo1} and {boolBingo2}")
         print(f"Sorting Array with mixed variable types '{mixedArr}' first by numbers, then strings alphabetically: {numAlphSortedArr}")
+        print(f"Array '{allInstancesArray1}' contains only Integers or Float with .0 for decimal: {checkInstances(allInstancesArray1)}")
+        print(f"Array '{allInstancesArray2}' contains only Integers or Float with .0 for decimal: {checkInstances(allInstancesArray2)}")
 
     def testSets(self):
         """Set Operations"""
