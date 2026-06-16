@@ -8,6 +8,7 @@ from collections import OrderedDict
 from datetime import date
 from itertools import combinations
 from itertools import product
+from re import compile, VERBOSE
 
 from AlphaTwo import AlphaTwo, function_min_array, void_function
 from AlphaTwoSub import AlphaTwoSub
@@ -323,6 +324,22 @@ class AlphaOne(unittest.TestCase):
             # From what remains of the Entry, strip any trailing spaces before and after, as well as any special characters other than - and .
             adress = re.sub(r'[^a-zA-Z0-9-. ]', ' ', adress).strip().replace("  ", " ")
             phoneDirectoryClean.append(f"Phone => {phone}, Name => {name}, Address => {adress}")
+        # REGEX for password 1 upper, 1 lower, 1 digit, only alphanumeric and 6 characters long minimum
+        psswrdExpression1 = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$"
+        # Verbose example using re import compile, VERBOSE
+        psswrdExpression2 = compile("""
+        ^              # begin word
+        (?=.*?[a-z])   # at least one lowercase letter
+        (?=.*?[A-Z])   # at least one uppercase letter
+        (?=.*?[0-9])   # at least one number
+        [A-Za-z\d]     # only alphanumeric
+        {6,}           # at least 6 characters long
+        $              # end word
+        """, VERBOSE)
+        psswrd1 = "Abc123"
+        psswrd2 = "abd12!"
+        boolpsswrd1 = bool(re.search(psswrdExpression1,psswrd1))
+        boolpsswrd2 = bool(re.search(psswrdExpression2, psswrd2))
 
         print("\nREGEX")
         print(f"From {fileName} using REGEX to get first number found: {regNumberOne} or {regNumberOneAlt}")
@@ -335,6 +352,8 @@ class AlphaOne(unittest.TestCase):
         print(f"From {datesText} using REGEX to get all dates found, even those with missing leading zeroes: {regDates}")
         print(f"Dirty Phone Directory {phoneDirectoryDirty}")
         print(f"Clean Phone Directory {phoneDirectoryClean}")
+        print(f"Password {psswrd1} meets criteria? {boolpsswrd1}")
+        print(f"Password {psswrd2} meets criteria? {boolpsswrd2}")
 
     def testArrays(self):
         """Array Operations"""
