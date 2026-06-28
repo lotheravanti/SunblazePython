@@ -336,10 +336,14 @@ class AlphaOne(unittest.TestCase):
         {6,}           # at least 6 characters long
         $              # end word
         """, VERBOSE)
+        # Alternate REGEX for length
+        psswrdExpression3 = r"(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8}"
         psswrd1 = "Abc123"
         psswrd2 = "abd12!"
+        psswrd3 = "  aBc123"
         boolpsswrd1 = bool(re.search(psswrdExpression1,psswrd1))
         boolpsswrd2 = bool(re.search(psswrdExpression2, psswrd2))
+        boolpsswrd3 = bool(re.search(psswrdExpression3, psswrd3))
 
         print("\nREGEX")
         print(f"From {fileName} using REGEX to get first number found: {regNumberOne} or {regNumberOneAlt}")
@@ -352,8 +356,9 @@ class AlphaOne(unittest.TestCase):
         print(f"From {datesText} using REGEX to get all dates found, even those with missing leading zeroes: {regDates}")
         print(f"Dirty Phone Directory {phoneDirectoryDirty}")
         print(f"Clean Phone Directory {phoneDirectoryClean}")
-        print(f"Password {psswrd1} meets criteria? {boolpsswrd1}")
-        print(f"Password {psswrd2} meets criteria? {boolpsswrd2}")
+        print(f"Password '{psswrd1}' meets criteria? {boolpsswrd1}")
+        print(f"Password '{psswrd2}' meets criteria? {boolpsswrd2}")
+        print(f"Password '{psswrd3}' meets criteria? {boolpsswrd3}")
 
     def testArrays(self):
         """Array Operations"""
