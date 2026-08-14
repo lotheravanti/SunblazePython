@@ -6,6 +6,7 @@ import unittest
 import numpy as np
 from collections import OrderedDict
 from datetime import date
+from datetime import timedelta
 from itertools import combinations
 from itertools import product
 from re import compile, VERBOSE
@@ -615,6 +616,18 @@ class AlphaOne(unittest.TestCase):
         print(f"From '{stringForReverse}' reverse every other word: '{arrReversedOther}'")
         print(f"From '{arrMixed}' get only numbers: '{arrNumbers}'")
         print(f"From '{arrMixed}' get only letters: '{arrLetters}'")
+
+    def testDateTime(self):
+        """Date and Time Operations"""
+        timesArray = ["01:54:43","05:11:22","10:21:04"]
+        duration1 = timedelta(hours=0, minutes=0, seconds=0)
+        for t in timesArray:
+            tArr = [int(i) for i in t.split(":")]
+            duration2 = timedelta(hours=tArr[0], minutes=tArr[1], seconds=tArr[2])
+            duration1 = duration1 + duration2
+        totalDuration = str(duration1)
+
+        print(f"Adding all times '{timesArray}' results in Total Duration: '{totalDuration}'")
 
     def testLambda(self):
         """Lambda Operations"""
