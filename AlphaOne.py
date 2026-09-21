@@ -619,6 +619,7 @@ class AlphaOne(unittest.TestCase):
 
     def testDateTime(self):
         """Date and Time Operations"""
+        # Add times using from datetime import timedelta
         timesArray = ["01:54:43","05:11:22","10:21:04"]
         duration1 = timedelta(hours=0, minutes=0, seconds=0)
         for t in timesArray:
@@ -634,8 +635,12 @@ class AlphaOne(unittest.TestCase):
         # Create sorted String using Lambda, all Upper Case characters appear in order followed by their Lower Case counterparts
         unsortedString = "AazaaZaazz"
         sortedString = ''.join(sorted(unsortedString,key=lambda c:(c.upper(),c.islower())))
+        # Reverse a sort
+        unsortedDict = {1:2,2:3,4:5}
+        reverseSortedArray = sorted(unsortedDict.items(), key=lambda x: x[1], reverse=True)
 
         print(f"Sorting '{unsortedString}' by Upper Case followed by all Lower Case instances using Lambda: '{sortedString}'")
+        print(f"Sorting Dictionary '{unsortedDict}' using Reverse sort: '{reverseSortedArray}'")
 
     def testConditionals(self):
         """Conditionals"""
